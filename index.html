@@ -1258,6 +1258,8 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
   .pp-live{margin-bottom:1.75rem}
   .pp-live a{flex:1 1 100%;justify-content:center}
 }
+/* bottom block now holds only the tab button: centre it */
+.pp-ctas-nav{justify-content:center}
 </style>
 </head>
 <body>
@@ -2029,8 +2031,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         </div>
 
         <!-- CTA -->
-        <div class="pp-ctas">
-          <p>Explore the live Alpha Clinic website — professional healthcare presentation with seamless patient experience and full admin integration.</p>
+        <div class="pp-ctas pp-ctas-nav">
           <div class="pp-cta-btns">
             <button onclick="switchTab(2,document.querySelectorAll('.ps-tab')[2])" class="btn-outline"><i class="fas fa-arrow-right"></i>View Admin Panel</button>
           </div>
@@ -2136,8 +2137,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         </div>
 
         <!-- CTA -->
-        <div class="pp-ctas">
-          <p>Experience the live Vynox Men's Wear website — a premium fashion e-commerce build delivering luxury brand quality and real conversion results.</p>
+        <div class="pp-ctas pp-ctas-nav">
           <div class="pp-cta-btns">
             <button onclick="switchTab(2,document.querySelectorAll('.ps-tab')[2])" class="btn-outline"><i class="fas fa-arrow-right"></i>Next Project</button>
           </div>
