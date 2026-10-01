@@ -1251,6 +1251,13 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
   #projectShowcase .ps-ts,#seoShowcase .ps-ts,#designShowcase .ps-ts{display:inline}
   #projectShowcase .ps-tab,#seoShowcase .ps-tab,#designShowcase .ps-tab{font-size:.82rem}
 }
+/* Each project's live-site link sits between the hero and the stats
+   rather than at the very bottom, so it is reachable without scrolling. */
+.pp-live{display:flex;justify-content:center;flex-wrap:wrap;gap:.65rem;margin:0 0 2.25rem}
+@media(max-width:600px){
+  .pp-live{margin-bottom:1.75rem}
+  .pp-live a{flex:1 1 100%;justify-content:center}
+}
 </style>
 </head>
 <body>
@@ -1949,6 +1956,9 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
 
       <div class="pp-wrap">
 
+        <!-- Live site -->
+        <div class="pp-live"><a href="https://alpha-clinic-bay.vercel.app/" target="_blank" rel="noopener" class="btn-glow"><i class="fas fa-external-link-alt"></i>Visit Live Website</a></div>
+
         <!-- Stats -->
         <div class="pp-stats">
           <div class="pp-stat"><div class="pp-stat-val">9</div><div class="pp-stat-lbl">Speciality Pages</div></div>
@@ -2022,7 +2032,6 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="pp-ctas">
           <p>Explore the live Alpha Clinic website — professional healthcare presentation with seamless patient experience and full admin integration.</p>
           <div class="pp-cta-btns">
-            <a href="https://alpha-clinic-bay.vercel.app/" target="_blank" class="btn-glow"><i class="fas fa-external-link-alt"></i>Visit Live Website</a>
             <button onclick="switchTab(2,document.querySelectorAll('.ps-tab')[2])" class="btn-outline"><i class="fas fa-arrow-right"></i>View Admin Panel</button>
           </div>
         </div>
@@ -2055,6 +2064,9 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
       </div>
 
       <div class="pp-wrap">
+
+        <!-- Live site -->
+        <div class="pp-live"><a href="https://vynox-menswear.vercel.app/" target="_blank" rel="noopener" class="btn-glow"><i class="fas fa-external-link-alt"></i>Visit Live Website</a></div>
 
         <!-- Stats -->
         <div class="pp-stats">
@@ -2127,7 +2139,6 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="pp-ctas">
           <p>Experience the live Vynox Men's Wear website — a premium fashion e-commerce build delivering luxury brand quality and real conversion results.</p>
           <div class="pp-cta-btns">
-            <a href="https://vynox-menswear.vercel.app/" target="_blank" class="btn-glow"><i class="fas fa-external-link-alt"></i>Visit Live Website</a>
             <button onclick="switchTab(2,document.querySelectorAll('.ps-tab')[2])" class="btn-outline"><i class="fas fa-arrow-right"></i>Next Project</button>
           </div>
         </div>
@@ -2159,6 +2170,9 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
       </div>
 
       <div class="pp-wrap">
+
+        <!-- Live site -->
+        <div class="pp-live"><a href="https://clinic-admin-panel-black.vercel.app/" target="_blank" rel="noopener" class="btn-glow"><i class="fas fa-external-link-alt"></i>Open Admin Panel</a><a href="https://alpha-clinic-bay.vercel.app/" target="_blank" rel="noopener" class="btn-outline"><i class="fas fa-hospital"></i>View Clinic Website</a></div>
 
         <!-- Stats -->
         <div class="pp-stats">
@@ -2217,15 +2231,6 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
               <span class="pp-tech"><i class="fas fa-database"></i>Secure Data Layer</span>
               <span class="pp-tech"><i class="fas fa-mobile-alt"></i>Responsive UI</span>
             </div>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="pp-ctas">
-          <p>Access the Admin Dashboard live — explore the full appointment management, inquiry tracking, and operational control features built for Alpha Clinic.</p>
-          <div class="pp-cta-btns">
-            <a href="https://clinic-admin-panel-black.vercel.app/" target="_blank" class="btn-glow"><i class="fas fa-external-link-alt"></i>Open Admin Panel</a>
-            <a href="https://alpha-clinic-bay.vercel.app/" target="_blank" class="btn-outline"><i class="fas fa-hospital"></i>View Clinic Website</a>
           </div>
         </div>
 
