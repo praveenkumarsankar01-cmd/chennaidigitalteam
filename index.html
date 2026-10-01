@@ -1221,6 +1221,37 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
 <link rel="dns-prefetch" href="https://maps.google.com">
+
+<style>
+/* ═══ SHOWCASE TABS ON PHONES ═════════════════════════════════════
+   Every showcase hid its tab bar below 900px, so a phone visitor
+   could only ever see the first project; the rest were unreachable.
+   The tabs now sit as a full-width second row under the title and
+   stay pinned while the panel scrolls. Below 600px they switch to
+   short labels so three fit side by side. Desktop is unchanged.
+   The Ads showcase is left alone: it has a single tab. */
+/* Showcase hero titles sit on dark photography in both themes. The light-
+   theme --grad starts at near-black #171922, which vanished there, so the
+   accent word always takes the light end of the brand gradient. */
+.pp-title span,.seo-hero h1 span{background:linear-gradient(135deg,#93c5fd,#3b82f6);-webkit-background-clip:text;background-clip:text}
+.ps-ts{display:none}
+@media(max-width:900px){
+  #projectShowcase .ps-topbar,#seoShowcase .ps-topbar,#designShowcase .ps-topbar{
+    flex-wrap:wrap;justify-content:space-between;row-gap:.7rem;column-gap:.75rem;padding:.75rem 1rem}
+  #projectShowcase .ps-tabs,#seoShowcase .ps-tabs,#designShowcase .ps-tabs{
+    display:flex !important;order:3;flex:1 1 100%;width:100%;gap:.3rem;overflow:visible}
+  #projectShowcase .ps-tab,#seoShowcase .ps-tab,#designShowcase .ps-tab{
+    flex:1 1 0;min-width:0;display:inline-flex;align-items:center;justify-content:center;padding:.62rem .4rem}
+  /* a long title wraps inside its own box instead of pushing the close button to a row of its own */
+  #projectShowcase .ps-brand,#seoShowcase .ps-brand,#designShowcase .ps-brand{flex:1 1 0;min-width:0}
+  #projectShowcase .ps-close,#seoShowcase .ps-close,#designShowcase .ps-close{flex:none}
+}
+@media(max-width:600px){
+  #projectShowcase .ps-tl,#seoShowcase .ps-tl,#designShowcase .ps-tl{display:none}
+  #projectShowcase .ps-ts,#seoShowcase .ps-ts,#designShowcase .ps-ts{display:inline}
+  #projectShowcase .ps-tab,#seoShowcase .ps-tab,#designShowcase .ps-tab{font-size:.82rem}
+}
+</style>
 </head>
 <body>
 
@@ -1883,9 +1914,9 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
   <div class="ps-topbar">
     <div class="ps-brand">Praveen<span>.</span> <span style="color:var(--t3);font-weight:500;font-size:.85rem;margin-left:.4rem">— Project Showcase</span></div>
     <div class="ps-tabs">
-      <button class="ps-tab act" onclick="switchTab(0,this)"><i class="fas fa-tshirt" style="margin-right:.4rem"></i>Vynox Men's Wear</button>
-      <button class="ps-tab" onclick="switchTab(1,this)"><i class="fas fa-hospital" style="margin-right:.4rem"></i>Alpha Clinic</button>
-      <button class="ps-tab" onclick="switchTab(2,this)"><i class="fas fa-chart-bar" style="margin-right:.4rem"></i>Admin Dashboard</button>
+      <button class="ps-tab act" onclick="switchTab(0,this)"><i class="fas fa-hospital" style="margin-right:.4rem"></i><span class="ps-tl">Alpha Clinic</span><span class="ps-ts">Clinic</span></button>
+      <button class="ps-tab" onclick="switchTab(1,this)"><i class="fas fa-tshirt" style="margin-right:.4rem"></i><span class="ps-tl">Vynox Men's Wear</span><span class="ps-ts">Vynox</span></button>
+      <button class="ps-tab" onclick="switchTab(2,this)"><i class="fas fa-chart-bar" style="margin-right:.4rem"></i><span class="ps-tl">Admin Dashboard</span><span class="ps-ts">Admin</span></button>
     </div>
     <button class="ps-close" onclick="closeProjectShowcase()" title="Close"><i class="fas fa-times"></i></button>
   </div>
@@ -1894,9 +1925,116 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
   <div class="ps-body">
 
     <!-- ══════════════════════════════════════
-         PANEL 1 — VYNOX MEN'S WEAR
+         PANEL 1 — ALPHA CLINIC
     ══════════════════════════════════════ -->
     <div class="ps-panel act" id="panel0">
+
+      <!-- Hero -->
+      <div class="pp-hero">
+        <div class="pp-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=1400&h=600&fit=crop&auto=format&q=80')"></div>
+        <div class="pp-hero-overlay"></div>
+        <div class="pp-hero-content">
+          <div class="pp-eyebrow"><i class="fas fa-hospital"></i> Healthcare Website · Admin Panel Included</div>
+          <h1 class="pp-title">Alpha <span>Clinic</span></h1>
+          <p class="pp-subtitle">A trust-building website for a multi-speciality and dental practice in Kodambakkam, Chennai — nine speciality pages, four consultant profiles, symptom-first routing, and an online booking form that lands in a custom admin dashboard the moment a patient presses send.</p>
+          <div class="pp-tags">
+            <span class="pp-tag"><i class="fas fa-shield-alt" style="margin-right:.3rem"></i>Trust-Focused Design</span>
+            <span class="pp-tag"><i class="fas fa-calendar-check" style="margin-right:.3rem"></i>Appointment Booking</span>
+            <span class="pp-tag"><i class="fas fa-cog" style="margin-right:.3rem"></i>Admin Dashboard</span>
+            <span class="pp-tag"><i class="fas fa-mobile-alt" style="margin-right:.3rem"></i>Fully Responsive</span>
+            <span class="pp-tag"><i class="fas fa-lock" style="margin-right:.3rem"></i>Secure Architecture</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pp-wrap">
+
+        <!-- Stats -->
+        <div class="pp-stats">
+          <div class="pp-stat"><div class="pp-stat-val">9</div><div class="pp-stat-lbl">Speciality Pages</div></div>
+          <div class="pp-stat"><div class="pp-stat-val">4</div><div class="pp-stat-lbl">Consultant Profiles</div></div>
+          <div class="pp-stat"><div class="pp-stat-val">6</div><div class="pp-stat-lbl">Symptom Pathways</div></div>
+          <div class="pp-stat"><div class="pp-stat-val">2-in-1</div><div class="pp-stat-lbl">Website + Admin Panel</div></div>
+        </div>
+
+        <!-- Design & Trust -->
+        <div class="pp-full">
+          <div class="pp-sh"><div class="pp-sh-ic"><i class="fas fa-heartbeat"></i></div><h3>Professional Healthcare UI/UX Design</h3></div>
+          <div class="pp-2col">
+            <div class="pp-features">
+              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-certificate"></i></div><div class="pp-feat-txt"><h4>Clinical Trust-Building Layout</h4><p>A calm white, deep-green and sage palette with medical imagery throughout. Trust is stated up front rather than implied — NABH accreditation, specialist-led since 2008, a 24/7 helpline, written cost estimates and real patient stories — answering what a worried patient wants to know before they book.</p></div></div>
+              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-stethoscope"></i></div><div class="pp-feat-txt"><h4>Nine Dedicated Service Pages</h4><p>Dental, fertility, maternity, paediatrics, women's health, menopause, mental wellness, general health and lab diagnostics each get their own page — structured layout, iconography and trust signals, so patients land directly on the treatment they came for.</p></div></div>
+              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-route"></i></div><div class="pp-feat-txt"><h4>Symptom-First Routing</h4><p>"What Hurts?" lets patients start from how they feel instead of a department name. Six symptom cards — from toothache and child fever to fatigue, sugar and BP — each route straight to the right specialist, so nobody needs a diagnosis to book.</p></div></div>
+            </div>
+            <div class="pp-features">
+              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-calendar-alt"></i></div><div class="pp-feat-txt"><h4>Appointment Booking System</h4><p>Patients pick a service, a preferred doctor, a date and a morning, afternoon or evening slot, and describe their symptoms. Each request is written to Firestore and appears on the admin dashboard instantly through a live listener — with an on-page confirmation so the patient knows it went through.</p></div></div>
+              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-comments"></i></div><div class="pp-feat-txt"><h4>Patient Consultation CTAs</h4><p>"Book an Appointment" and "Free Phone Consult" lead the hero, with "Book Online" and a one-tap call button held in the header — so the next step is never more than a thumb away.</p></div></div>
+              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-map-marker-alt"></i></div><div class="pp-feat-txt"><h4>Consultant Profiles & Navigation</h4><p>A dedicated profile page for each of the four consultants — qualifications and years of experience — alongside dropdown menus for every service and doctor, a three-step "How it works" guide, and one-tap directions to the clinic.</p></div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Admin Panel Integration Highlight -->
+        <div class="pp-full">
+          <div class="pp-badge"><i class="fas fa-star"></i> Premium Feature — Exclusive Admin Panel Integration</div>
+          <div class="pp-card">
+            <div class="pp-sh"><div class="pp-sh-ic"><i class="fas fa-cogs"></i></div><h3>Dedicated Admin Panel & Dashboard Integration</h3></div>
+            <p style="margin-bottom:1rem">A custom admin dashboard built for Alpha Clinic's front desk — every booking made on the website lands here the moment it is submitted, in one sign-in-protected place.</p>
+            <p>The dashboard handles <strong style="color:var(--t1)">appointment bookings</strong>, <strong style="color:var(--t1)">patient enquiry records</strong>, <strong style="color:var(--t1)">status updates</strong> and <strong style="color:var(--t1)">booking history</strong> — one live queue the whole front desk works from, instead of calls and messages scattered across phones.</p>
+            <div class="pp-admin-grid">
+              <div class="pp-admin-card"><i class="fas fa-calendar-check"></i><h4>Appointment Manager</h4><p>View, approve, and manage all booked appointments in real time</p></div>
+              <div class="pp-admin-card"><i class="fas fa-inbox"></i><h4>Full Booking Details</h4><p>Every request arrives with name, phone, service, preferred doctor, date, time and symptoms</p></div>
+              <div class="pp-admin-card"><i class="fas fa-folder-open"></i><h4>Booking Records</h4><p>Booking history kept in one place — open any record in full, clear it once handled</p></div>
+              <div class="pp-admin-card"><i class="fas fa-users"></i><h4>Patient Data</h4><p>Patient details kept together for quick lookup at the reception desk</p></div>
+              <div class="pp-admin-card"><i class="fas fa-chart-line"></i><h4>Reports</h4><p>Appointment trends and enquiry volumes at a glance</p></div>
+              <div class="pp-admin-card"><i class="fas fa-lock"></i><h4>Sign-In Gated</h4><p>Password-protected, with a one-tap sign-out for shared reception machines</p></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Technical -->
+        <div class="pp-2col">
+          <div class="pp-card">
+            <div class="pp-sh"><div class="pp-sh-ic"><i class="fas fa-code"></i></div><h3>Technical & SEO Architecture</h3></div>
+            <p>Hand-written HTML, CSS and JavaScript on a Firebase Firestore backend, hosted on Vercel. Each page carries its own local title and description — "Multi-Speciality &amp; Dental Care in Kodambakkam, Chennai" — with readable URLs such as /services/dental-care.html, so every speciality can rank on its own for nearby searches.</p>
+            <div class="pp-techs">
+              <span class="pp-tech"><i class="fab fa-html5"></i>HTML5 / CSS3</span>
+              <span class="pp-tech"><i class="fab fa-js"></i>JavaScript</span>
+              <span class="pp-tech"><i class="fas fa-bolt"></i>Vercel</span>
+              <span class="pp-tech"><i class="fas fa-fire"></i>Firebase</span>
+              <span class="pp-tech"><i class="fas fa-search"></i>SEO Ready</span>
+              <span class="pp-tech"><i class="fas fa-shield-alt"></i>HTTPS Secure</span>
+            </div>
+          </div>
+          <div class="pp-card">
+            <div class="pp-sh"><div class="pp-sh-ic"><i class="fas fa-mobile-alt"></i></div><h3>Responsive & Performance</h3></div>
+            <p>Fully responsive across all devices — from desktop clinic receptionists to mobile patients searching for healthcare nearby. Optimised images, minimal blocking resources, and efficient code ensure exceptional loading performance on all connections.</p>
+            <div class="pp-techs">
+              <span class="pp-tech"><i class="fas fa-tablet-alt"></i>All Devices</span>
+              <span class="pp-tech"><i class="fas fa-tachometer-alt"></i>Fast Load</span>
+              <span class="pp-tech"><i class="fas fa-image"></i>Optimised Media</span>
+              <span class="pp-tech"><i class="fab fa-google"></i>CWV Compliant</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="pp-ctas">
+          <p>Explore the live Alpha Clinic website — professional healthcare presentation with seamless patient experience and full admin integration.</p>
+          <div class="pp-cta-btns">
+            <a href="https://alpha-clinic-bay.vercel.app/" target="_blank" class="btn-glow"><i class="fas fa-external-link-alt"></i>Visit Live Website</a>
+            <button onclick="switchTab(2,document.querySelectorAll('.ps-tab')[2])" class="btn-outline"><i class="fas fa-arrow-right"></i>View Admin Panel</button>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /panel0 -->
+
+
+    <!-- ══════════════════════════════════════
+         PANEL 2 — VYNOX MEN'S WEAR
+    ══════════════════════════════════════ -->
+    <div class="ps-panel" id="panel1">
 
       <!-- Hero -->
       <div class="pp-hero">
@@ -1990,114 +2128,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
           <p>Experience the live Vynox Men's Wear website — a premium fashion e-commerce build delivering luxury brand quality and real conversion results.</p>
           <div class="pp-cta-btns">
             <a href="https://vynox-menswear.vercel.app/" target="_blank" class="btn-glow"><i class="fas fa-external-link-alt"></i>Visit Live Website</a>
-            <button onclick="switchTab(1,document.querySelectorAll('.ps-tab')[1])" class="btn-outline"><i class="fas fa-arrow-right"></i>Next Project</button>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- /panel0 -->
-
-
-    <!-- ══════════════════════════════════════
-         PANEL 2 — ALPHA CLINIC
-    ══════════════════════════════════════ -->
-    <div class="ps-panel" id="panel1">
-
-      <!-- Hero -->
-      <div class="pp-hero">
-        <div class="pp-hero-bg" style="background-image:url('https://images.unsplash.com/photo-1631815589968-fdb09a223b1e?w=1400&h=600&fit=crop&auto=format&q=80')"></div>
-        <div class="pp-hero-overlay"></div>
-        <div class="pp-hero-content">
-          <div class="pp-eyebrow"><i class="fas fa-hospital"></i> Healthcare Website · Admin Panel Included</div>
-          <h1 class="pp-title">Alpha <span>Clinic</span></h1>
-          <p class="pp-subtitle">A trust-building healthcare website for a multi-speciality and dental practice in Kodambakkam, Chennai — nine dedicated service pages, individual consultant profiles, and an appointment booking flow wired straight into a custom admin dashboard.</p>
-          <div class="pp-tags">
-            <span class="pp-tag"><i class="fas fa-shield-alt" style="margin-right:.3rem"></i>Trust-Focused Design</span>
-            <span class="pp-tag"><i class="fas fa-calendar-check" style="margin-right:.3rem"></i>Appointment Booking</span>
-            <span class="pp-tag"><i class="fas fa-cog" style="margin-right:.3rem"></i>Admin Dashboard</span>
-            <span class="pp-tag"><i class="fas fa-mobile-alt" style="margin-right:.3rem"></i>Fully Responsive</span>
-            <span class="pp-tag"><i class="fas fa-lock" style="margin-right:.3rem"></i>Secure Architecture</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="pp-wrap">
-
-        <!-- Stats -->
-        <div class="pp-stats">
-          <div class="pp-stat"><div class="pp-stat-val">100%</div><div class="pp-stat-lbl">Accessibility Ready</div></div>
-          <div class="pp-stat"><div class="pp-stat-val">2-in-1</div><div class="pp-stat-lbl">Website + Admin Panel</div></div>
-          <div class="pp-stat"><div class="pp-stat-val">HTTPS</div><div class="pp-stat-lbl">Secure & Trusted</div></div>
-          <div class="pp-stat"><div class="pp-stat-val">A+</div><div class="pp-stat-lbl">Performance Score</div></div>
-        </div>
-
-        <!-- Design & Trust -->
-        <div class="pp-full">
-          <div class="pp-sh"><div class="pp-sh-ic"><i class="fas fa-heartbeat"></i></div><h3>Professional Healthcare UI/UX Design</h3></div>
-          <div class="pp-2col">
-            <div class="pp-features">
-              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-certificate"></i></div><div class="pp-feat-txt"><h4>Clinical Trust-Building Layout</h4><p>Clean white and teal colour palette, professional medical imagery, and structured layout elements establish immediate credibility and patient trust — the most critical factor in healthcare conversions.</p></div></div>
-              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-stethoscope"></i></div><div class="pp-feat-txt"><h4>Nine Dedicated Service Pages</h4><p>Dental, fertility, maternity, paediatrics, women's health, menopause, mental wellness, general health and lab diagnostics each get their own page — structured layout, iconography and trust signals, so patients land directly on the treatment they came for.</p></div></div>
-              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-universal-access"></i></div><div class="pp-feat-txt"><h4>Accessibility & Inclusivity</h4><p>Designed with WCAG accessibility standards in mind — including readable font sizes, sufficient colour contrast, keyboard navigation support, and screen reader compatibility for all patient groups.</p></div></div>
-            </div>
-            <div class="pp-features">
-              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-calendar-alt"></i></div><div class="pp-feat-txt"><h4>Appointment Booking System</h4><p>A seamless, user-friendly appointment booking and patient enquiry flow with form validation, confirmation feedback, and direct integration to the admin panel for real-time management.</p></div></div>
-              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-comments"></i></div><div class="pp-feat-txt"><h4>Patient Consultation CTAs</h4><p>Strategically positioned "Book Appointment", "Contact Us", and "Get Consultation" CTAs at key decision moments — converting curious visitors into booked patients with minimal friction.</p></div></div>
-              <div class="pp-feat"><div class="pp-feat-ic"><i class="fas fa-map-marker-alt"></i></div><div class="pp-feat-txt"><h4>Consultant Profiles & Navigation</h4><p>A dedicated profile page for each of the four consultants — qualifications, expertise and experience — alongside an intuitive menu and anchor-linked service sections, so patients can choose a doctor as easily as a treatment.</p></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Admin Panel Integration Highlight -->
-        <div class="pp-full">
-          <div class="pp-badge"><i class="fas fa-star"></i> Premium Feature — Exclusive Admin Panel Integration</div>
-          <div class="pp-card">
-            <div class="pp-sh"><div class="pp-sh-ic"><i class="fas fa-cogs"></i></div><h3>Dedicated Admin Panel & Dashboard Integration</h3></div>
-            <p style="margin-bottom:1rem">A fully custom Admin Panel/Dashboard has been built and integrated exclusively for Alpha Clinic — giving the clinic team complete control over their digital operations from a single, secure management interface.</p>
-            <p>The admin panel handles <strong style="color:var(--t1)">appointment management</strong>, <strong style="color:var(--t1)">patient inquiry tracking</strong>, <strong style="color:var(--t1)">content updates</strong>, <strong style="color:var(--t1)">website management</strong>, and <strong style="color:var(--t1)">overall workflow operations</strong> — dramatically improving clinic efficiency and reducing administrative workload.</p>
-            <div class="pp-admin-grid">
-              <div class="pp-admin-card"><i class="fas fa-calendar-check"></i><h4>Appointment Manager</h4><p>View, approve, and manage all booked appointments in real time</p></div>
-              <div class="pp-admin-card"><i class="fas fa-inbox"></i><h4>Inquiry Tracker</h4><p>Track all patient enquiries and respond from one centralised dashboard</p></div>
-              <div class="pp-admin-card"><i class="fas fa-edit"></i><h4>Content Control</h4><p>Update clinic services, doctors, timings, and page content instantly</p></div>
-              <div class="pp-admin-card"><i class="fas fa-users"></i><h4>Patient Data</h4><p>Organised patient information handling with secure data management</p></div>
-              <div class="pp-admin-card"><i class="fas fa-chart-line"></i><h4>Performance Insights</h4><p>Monitor website traffic, enquiry trends, and booking performance</p></div>
-              <div class="pp-admin-card"><i class="fas fa-lock"></i><h4>Secure Auth</h4><p>Protected login with role-based access control and session management</p></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Technical -->
-        <div class="pp-2col">
-          <div class="pp-card">
-            <div class="pp-sh"><div class="pp-sh-ic"><i class="fas fa-code"></i></div><h3>Technical & SEO Architecture</h3></div>
-            <p>Built with a clean, semantic codebase optimised for search engines and fast performance. SEO-friendly URL structure, meta optimisation, structured content hierarchy, and Core Web Vitals compliance ensure strong organic visibility for local patient searches.</p>
-            <div class="pp-techs">
-              <span class="pp-tech"><i class="fab fa-html5"></i>HTML5 / CSS3</span>
-              <span class="pp-tech"><i class="fab fa-js"></i>JavaScript</span>
-              <span class="pp-tech"><i class="fas fa-bolt"></i>Vercel</span>
-              <span class="pp-tech"><i class="fas fa-fire"></i>Firebase</span>
-              <span class="pp-tech"><i class="fas fa-search"></i>SEO Ready</span>
-              <span class="pp-tech"><i class="fas fa-shield-alt"></i>HTTPS Secure</span>
-            </div>
-          </div>
-          <div class="pp-card">
-            <div class="pp-sh"><div class="pp-sh-ic"><i class="fas fa-mobile-alt"></i></div><h3>Responsive & Performance</h3></div>
-            <p>Fully responsive across all devices — from desktop clinic receptionists to mobile patients searching for healthcare nearby. Optimised images, minimal blocking resources, and efficient code ensure exceptional loading performance on all connections.</p>
-            <div class="pp-techs">
-              <span class="pp-tech"><i class="fas fa-tablet-alt"></i>All Devices</span>
-              <span class="pp-tech"><i class="fas fa-tachometer-alt"></i>Fast Load</span>
-              <span class="pp-tech"><i class="fas fa-image"></i>Optimised Media</span>
-              <span class="pp-tech"><i class="fab fa-google"></i>CWV Compliant</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="pp-ctas">
-          <p>Explore the live Alpha Clinic website — professional healthcare presentation with seamless patient experience and full admin integration.</p>
-          <div class="pp-cta-btns">
-            <a href="https://alpha-clinic-bay.vercel.app/" target="_blank" class="btn-glow"><i class="fas fa-external-link-alt"></i>Visit Live Website</a>
-            <button onclick="switchTab(2,document.querySelectorAll('.ps-tab')[2])" class="btn-outline"><i class="fas fa-arrow-right"></i>View Admin Panel</button>
+            <button onclick="switchTab(2,document.querySelectorAll('.ps-tab')[2])" class="btn-outline"><i class="fas fa-arrow-right"></i>Next Project</button>
           </div>
         </div>
 
@@ -2117,7 +2148,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="pp-hero-content">
           <div class="pp-eyebrow"><i class="fas fa-shield-alt"></i> Clinic Admin Dashboard · Secure Management System</div>
           <h1 class="pp-title">Clinic Admin <span>Dashboard</span></h1>
-          <p class="pp-subtitle">A powerful, secure, and elegantly designed admin panel built exclusively for Alpha Clinic — centralising appointment management, patient inquiries, content control, and operational workflows in one modern management interface.</p>
+          <p class="pp-subtitle">A powerful, secure, and elegantly designed admin panel built exclusively for Alpha Clinic — centralising appointment management, patient inquiries, booking records, and operational workflows in one modern management interface.</p>
           <div class="pp-tags">
             <span class="pp-tag"><i class="fas fa-lock" style="margin-right:.3rem"></i>Secure Authentication</span>
             <span class="pp-tag"><i class="fas fa-tachometer-alt" style="margin-right:.3rem"></i>Modern Dashboard UI</span>
@@ -2173,7 +2204,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="pp-full">
           <div class="pp-card">
             <div class="pp-sh"><div class="pp-sh-ic"><i class="fas fa-rocket"></i></div><h3>Operational Impact & Clinic Efficiency</h3></div>
-            <p style="margin-bottom:.9rem">The admin panel transforms how Alpha Clinic operates digitally. By consolidating appointments, patient inquiries, content control, and performance monitoring into a single secure interface, the clinic team can focus entirely on patient care — while the system handles administrative complexity.</p>
+            <p style="margin-bottom:.9rem">The admin panel transforms how Alpha Clinic operates digitally. By consolidating appointments, patient inquiries, booking records, and performance monitoring into a single secure interface, the clinic team can focus entirely on patient care — while the system handles administrative complexity.</p>
             <div class="pp-admin-grid">
               <div class="pp-admin-card"><i class="fas fa-clock"></i><h4>Time Saved Daily</h4><p>Automated inquiry capture and organised appointment view eliminates hours of manual admin work</p></div>
               <div class="pp-admin-card"><i class="fas fa-user-check"></i><h4>Better Patient Experience</h4><p>Faster response times to enquiries and confirmed appointments improve patient satisfaction significantly</p></div>
@@ -2218,9 +2249,9 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
   <div class="ps-topbar">
     <div class="ps-brand">Praveen<span>.</span> <span style="color:var(--t3);font-weight:500;font-size:.85rem;margin-left:.4rem">— SEO Campaign Showcase</span></div>
     <div class="ps-tabs" id="seoTabs">
-      <button class="ps-tab act" onclick="switchSeoTab(0,this)"><i class="fas fa-shopping-bag" style="margin-right:.4rem"></i>Vynox Men's Wear</button>
-      <button class="ps-tab" onclick="switchSeoTab(1,this)"><i class="fas fa-hospital" style="margin-right:.4rem"></i>Alpha Clinic</button>
-      <button class="ps-tab" onclick="switchSeoTab(2,this)"><i class="fas fa-search-plus" style="margin-right:.4rem"></i>Technical SEO Audit</button>
+      <button class="ps-tab act" onclick="switchSeoTab(0,this)"><i class="fas fa-shopping-bag" style="margin-right:.4rem"></i><span class="ps-tl">Vynox Men's Wear</span><span class="ps-ts">Vynox</span></button>
+      <button class="ps-tab" onclick="switchSeoTab(1,this)"><i class="fas fa-hospital" style="margin-right:.4rem"></i><span class="ps-tl">Alpha Clinic</span><span class="ps-ts">Clinic</span></button>
+      <button class="ps-tab" onclick="switchSeoTab(2,this)"><i class="fas fa-search-plus" style="margin-right:.4rem"></i><span class="ps-tl">Technical SEO Audit</span><span class="ps-ts">SEO Audit</span></button>
     </div>
     <button class="ps-close" onclick="closeSeoShowcase()" title="Close"><i class="fas fa-times"></i></button>
   </div>
@@ -2674,9 +2705,9 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
   <div class="ps-topbar">
     <div class="ps-brand">Praveen<span style="background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">.</span> <span style="color:var(--t3);font-weight:500;font-size:.85rem;margin-left:.4rem">— Social Media &amp; Poster Design Showcase</span></div>
     <div class="ps-tabs" id="desTabs">
-      <button class="ps-tab act" onclick="switchDesignTab(0,this)"><i class="fas fa-ad" style="margin-right:.4rem"></i>Promo Banners</button>
-      <button class="ps-tab" onclick="switchDesignTab(1,this)"><i class="fas fa-box-open" style="margin-right:.4rem"></i>Product Ads</button>
-      <button class="ps-tab" onclick="switchDesignTab(2,this)"><i class="fab fa-instagram" style="margin-right:.4rem"></i>Story Templates</button>
+      <button class="ps-tab act" onclick="switchDesignTab(0,this)"><i class="fas fa-ad" style="margin-right:.4rem"></i><span class="ps-tl">Promo Banners</span><span class="ps-ts">Banners</span></button>
+      <button class="ps-tab" onclick="switchDesignTab(1,this)"><i class="fas fa-box-open" style="margin-right:.4rem"></i><span class="ps-tl">Product Ads</span><span class="ps-ts">Product Ads</span></button>
+      <button class="ps-tab" onclick="switchDesignTab(2,this)"><i class="fab fa-instagram" style="margin-right:.4rem"></i><span class="ps-tl">Story Templates</span><span class="ps-ts">Stories</span></button>
     </div>
     <button class="ps-close" onclick="closeDesignShowcase()" title="Close"><i class="fas fa-times"></i></button>
   </div>
