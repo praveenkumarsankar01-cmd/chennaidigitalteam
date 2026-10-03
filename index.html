@@ -1049,12 +1049,12 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
    width keeps a true circle at every breakpoint. */
 .photo-wrap{aspect-ratio:1/1 !important;height:auto !important;max-width:100%}
 
-/* Portrait is supplied on a flat blue field (#22a4fc, sampled from the
-   image). Matching the circle to it hides the seam if cover ever leaves a
-   gap, and keeps the edge clean at any size. No filter: the photo is used
-   as shot. */
-.photo-circle{background:#22a4fc !important}
-.photo-circle img{object-position:50% 0%;transform:scale(1.09);transform-origin:50% 0%}
+/* Portrait is a square crop of a circular photo on a flat blue field
+   (#137be9, sampled from the image), trimmed just inside its edge. Shown
+   whole and unscaled, its circle lines up exactly with this one; the matching
+   background keeps the edge clean at any size. No filter: used as shot. */
+.photo-circle{background:#137be9 !important}
+.photo-circle img{object-position:50% 50%;transform:none}
 
 /* ── Location map, fills the cell the form leaves empty ─────────── */
 .map-card{display:flex;flex-direction:column}
@@ -1360,7 +1360,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
 
         <!-- Photo circle -->
         <div class="photo-circle">
-          <img fetchpriority="high" decoding="async" src="assets/portrait.jpg" alt="Praveen Kumar">
+          <img fetchpriority="high" decoding="async" src="assets/portrait-praveen.webp" width="369" height="369" alt="Praveen Kumar">
         </div>
       </div>
     </div>
