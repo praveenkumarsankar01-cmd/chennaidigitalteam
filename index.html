@@ -728,32 +728,32 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
 .ps-close:hover{background:var(--danger);border-color:var(--danger);color:#fff}
 
 /* project showcase cards */
-.wc-wrap{max-width:1240px;margin:0 auto;padding:2.5rem 2rem 4rem}
+.wc-wrap{max-width:1440px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
 .wc-section{scroll-margin-top:1.5rem}
 .wc-section+.wc-section{margin-top:3.5rem}
 .wc-heading{font-size:1.9rem;font-weight:900;color:var(--t1);letter-spacing:-.02em;margin-bottom:1.6rem}
 .wc-heading span{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.wc-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.8rem}
-.wc-card{position:relative;flex:0 1 calc((100% - 3.6rem)/3);height:520px;border-radius:28px;overflow:hidden;border:2px solid rgba(255,255,255,.1);box-shadow:0 12px 48px rgba(0,0,0,.15);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
+.wc-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem}
+.wc-card{position:relative;flex:0 1 calc((100% - 3.6rem)/4);height:480px;border-radius:24px;overflow:hidden;border:2px solid rgba(255,255,255,.1);box-shadow:0 12px 48px rgba(0,0,0,.15);transition:transform .5s var(--ease),box-shadow .5s var(--ease)}
 .wc-card:hover{transform:translateY(-10px);box-shadow:0 28px 72px rgba(23,25,34,.25)}
-.wc-bg{position:absolute;inset:0;background-size:cover;background-position:center;background-color:#1e2333;transition:transform .8s cubic-bezier(.2,.5,.3,1)}
+.wc-bg{position:absolute;inset:0;background-size:cover;background-position:center 30%;background-color:#1e2333;transition:transform .8s cubic-bezier(.2,.5,.3,1)}
 .wc-card:hover .wc-bg{transform:scale(1.08)}
 .wc-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(20,25,40,.15) 0%,rgba(20,25,40,.3) 35%,rgba(20,25,40,.65) 65%,rgba(20,25,40,.9) 100%)}
 [data-theme="dark"] .wc-overlay{background:linear-gradient(180deg,rgba(5,5,10,.2) 0%,rgba(5,5,10,.35) 35%,rgba(5,5,10,.72) 65%,rgba(5,5,10,.94) 100%)}
-.wc-number{position:absolute;top:1.5rem;left:1.6rem;z-index:3;font-size:1.6rem;font-weight:900;color:rgba(255,255,255,.4);letter-spacing:.05em}
-.wc-badge{position:absolute;top:1.4rem;right:1.4rem;z-index:3;display:flex;align-items:center;gap:.5rem;padding:.5rem 1.1rem;border-radius:24px;background:rgba(255,255,255,.92);color:#171922;font-size:.78rem;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.1)}
-.wc-content{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;gap:.85rem;padding:1.8rem}
+.wc-number{position:absolute;top:1.3rem;left:1.4rem;z-index:3;font-size:1.4rem;font-weight:900;color:rgba(255,255,255,.4);letter-spacing:.05em}
+.wc-badge{position:absolute;top:1.2rem;right:1.2rem;z-index:3;display:flex;align-items:center;gap:.5rem;padding:.45rem .95rem;border-radius:24px;background:rgba(255,255,255,.92);color:#171922;font-size:.78rem;font-weight:700;box-shadow:0 6px 20px rgba(0,0,0,.1)}
+.wc-content{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;gap:.75rem;padding:1.4rem}
 .wc-tags{display:flex;flex-wrap:wrap;gap:.4rem}
 .wc-tag{padding:.34rem .7rem;border-radius:16px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.25);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(255,255,255,.92);font-size:.7rem;font-weight:700;letter-spacing:.02em}
-.wc-title{font-size:1.55rem;font-weight:900;line-height:1.2;color:#fff;letter-spacing:-.015em}
-.wc-desc{font-size:.9rem;line-height:1.6;color:rgba(255,255,255,.88)}
-.wc-btn{display:inline-flex;align-items:center;gap:.6rem;width:fit-content;padding:.72rem 1.6rem;border-radius:12px;background:linear-gradient(135deg,#171922,#3b82f6);color:#fff;font-size:.85rem;font-weight:800;text-decoration:none;box-shadow:0 8px 24px rgba(23,25,34,.35);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
+.wc-title{font-size:1.35rem;font-weight:900;line-height:1.2;color:#fff;letter-spacing:-.015em}
+.wc-desc{font-size:.86rem;line-height:1.55;color:rgba(255,255,255,.88)}
+.wc-btn{display:inline-flex;align-items:center;gap:.6rem;width:fit-content;padding:.68rem 1.1rem;border-radius:12px;background:linear-gradient(135deg,#171922,#3b82f6);color:#fff;font-size:.85rem;font-weight:800;text-decoration:none;box-shadow:0 8px 24px rgba(23,25,34,.35);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .wc-btn:hover{transform:translateX(6px);box-shadow:0 12px 36px rgba(23,25,34,.55)}
 .wc-btn .ic{font-size:.75rem}
-.wc-acts{display:flex;flex-wrap:wrap;gap:.6rem}
+.wc-acts{display:flex;flex-wrap:wrap;gap:.5rem}
 .wc-btn-alt{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);box-shadow:none;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
 .wc-btn-alt:hover{background:rgba(255,255,255,.26);box-shadow:none}
-@media(max-width:1024px){.wc-card{flex-basis:calc((100% - 1.8rem)/2);height:500px}}
+@media(max-width:1199px){.wc-card{flex-basis:calc((100% - 1.2rem)/2);height:500px}}
 @media(max-width:640px){.wc-wrap{padding:1.6rem 1rem 3rem}.wc-grid{gap:1.2rem}.wc-card{flex-basis:100%;height:480px;border-radius:22px}.wc-content{padding:1.4rem}.wc-title{font-size:1.35rem}.wc-heading{font-size:1.5rem;margin-bottom:1.1rem}}
 
 /* scroll area */
@@ -2054,7 +2054,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="wc-content">
           <div class="wc-tags"><span class="wc-tag">Online Booking</span><span class="wc-tag">9 Speciality Pages</span><span class="wc-tag">Mobile-Ready</span></div>
           <h3 class="wc-title">Alpha Clinic</h3>
-          <p class="wc-desc">Clinic website for a multi-speciality practice in Chennai. Patients book online and every request reaches the front desk instantly.</p>
+          <p class="wc-desc">Multi-speciality clinic website in Chennai with online booking and a live admin panel.</p>
           <div class="wc-acts"><a class="wc-btn" href="https://alpha-clinic-bay.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a><a class="wc-btn wc-btn-alt" href="https://clinic-admin-panel-black.vercel.app/" target="_blank" rel="noopener">Admin Panel</a></div>
         </div>
       </article>
@@ -2066,7 +2066,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="wc-content">
           <div class="wc-tags"><span class="wc-tag">Video Hero</span><span class="wc-tag">Symptom Finder</span><span class="wc-tag">Clear Pricing</span></div>
           <h3 class="wc-title">Origin Dentals</h3>
-          <p class="wc-desc">Premium dental clinic website with quick booking, treatment pages, dentist profiles and starting prices.</p>
+          <p class="wc-desc">Premium dental clinic website with quick booking, treatment pages and clear prices.</p>
           <a class="wc-btn" href="https://origin-dentals.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
         </div>
       </article>
@@ -2078,7 +2078,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="wc-content">
           <div class="wc-tags"><span class="wc-tag">Online Store</span><span class="wc-tag">WhatsApp Orders</span><span class="wc-tag">SEO Ready</span></div>
           <h3 class="wc-title">Vynox Men&#x27;s Wear</h3>
-          <p class="wc-desc">Men&#x27;s fashion store with a premium look, a smooth shopping journey and product pages built to rank.</p>
+          <p class="wc-desc">Men&#x27;s fashion store with a premium look and product pages built to rank.</p>
           <a class="wc-btn" href="https://vynox-menswear.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
         </div>
       </article>
@@ -2090,7 +2090,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="wc-content">
           <div class="wc-tags"><span class="wc-tag">48 Pages</span><span class="wc-tag">Estimate Form</span><span class="wc-tag">Local SEO</span></div>
           <h3 class="wc-title">Keystone Fence &amp; Deck</h3>
-          <p class="wc-desc">Contractor website for a fence and deck builder in Texas, with service and city pages and a two-step estimate form.</p>
+          <p class="wc-desc">48-page website for a Texas fence and deck builder, with a two-step estimate form.</p>
           <a class="wc-btn" href="https://keystone-fence02.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
         </div>
       </article>
@@ -2108,7 +2108,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="wc-content">
           <div class="wc-tags"><span class="wc-tag">Application Form</span><span class="wc-tag">Call Booking</span><span class="wc-tag">Confirmation</span></div>
           <h3 class="wc-title">Devia Coaching</h3>
-          <p class="wc-desc">Application funnel for a 1:1 coach. Visitors apply, book a free strategy call and get an instant confirmation.</p>
+          <p class="wc-desc">Coaching funnel where visitors apply, book a free strategy call and get confirmed.</p>
           <a class="wc-btn" href="https://deviacoaching.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
         </div>
       </article>
@@ -2120,7 +2120,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="wc-content">
           <div class="wc-tags"><span class="wc-tag">Free Plan</span><span class="wc-tag">7-Day Trial</span><span class="wc-tag">Email Follow-Up</span></div>
           <h3 class="wc-title">Andria Fitness</h3>
-          <p class="wc-desc">Lead magnet funnel for a fitness studio. A free 4-week plan or a 7-day trial that leads into the paid program.</p>
+          <p class="wc-desc">Fitness funnel with a free 4-week plan or 7-day trial that leads to the paid program.</p>
           <a class="wc-btn" href="https://andriafitness.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
         </div>
       </article>
@@ -2132,7 +2132,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="wc-content">
           <div class="wc-tags"><span class="wc-tag">Free Live Class</span><span class="wc-tag">Course Offer</span><span class="wc-tag">Checkout</span></div>
           <h3 class="wc-title">Learn English with Emma</h3>
-          <p class="wc-desc">Webinar funnel for an English teacher. Free class sign-up, class room, course offer and checkout.</p>
+          <p class="wc-desc">Webinar funnel with a free live class, course offer and checkout.</p>
           <a class="wc-btn" href="https://englishwithemma.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
         </div>
       </article>
