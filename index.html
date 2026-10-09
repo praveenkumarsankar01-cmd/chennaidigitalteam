@@ -365,7 +365,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t2);overf
 .sk-hd{display:flex;justify-content:space-between;margin-bottom:.4rem;font-size:.85rem;font-weight:500;color:var(--t2)}
 .sk-pct{color:var(--primary-light)}
 .sk-track{height:5px;background:var(--glass-b);border-radius:99px;overflow:hidden}
-.sk-fill{height:100%;width:0;background:var(--grad);border-radius:99px;transition:width 1.1s var(--ease)}
+.sk-fill{height:100%;width:0;background:var(--grad);border-radius:99px}
 
 /* ── SERVICES — IMAGE CARD DESIGN (from Designn.txt) ── */
 .services{background:var(--bg0)}
@@ -579,8 +579,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
 #btt:hover{transform:translateY(-4px);box-shadow:0 8px 28px var(--primary-glow)}
 
 /* REVEAL */
-.rv{opacity:0;transform:translateY(36px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
-.rv.vis{opacity:1;transform:translateY(0)}
+.rv{opacity:1;transform:none}
 .rv[data-d="50"]{transition-delay:.05s}.rv[data-d="100"]{transition-delay:.1s}.rv[data-d="150"]{transition-delay:.15s}.rv[data-d="200"]{transition-delay:.2s}.rv[data-d="250"]{transition-delay:.25s}.rv[data-d="300"]{transition-delay:.3s}
 /* Hero text and portrait render in place, with no entrance animation.
    They previously started at opacity:0 behind a 1.5s / 1.7s delay, so
@@ -3288,17 +3287,8 @@ const ham=document.getElementById('ham'),navLinks=document.getElementById('navLi
 ham.addEventListener('click',()=>{ham.classList.toggle('open');navLinks.classList.toggle('open')});
 navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{ham.classList.remove('open');navLinks.classList.remove('open')}));
 
-/* SCROLL REVEAL */
-const rvObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');rvObs.unobserve(e.target)}});
-},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
-document.querySelectorAll('.rv').forEach(el=>rvObs.observe(el));
-
-/* SKILL BARS */
-const skObs=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{if(e.isIntersecting){e.target.style.width=e.target.dataset.w+'%';skObs.unobserve(e.target)}});
-},{threshold:.3});
-document.querySelectorAll('.sk-fill').forEach(f=>skObs.observe(f));
+/* SKILL BARS: shown at their level straight away */
+document.querySelectorAll('.sk-fill').forEach(f=>{f.style.width=f.dataset.w+'%'});
 
 /* COUNTERS */
 const cntObs=new IntersectionObserver(entries=>{
