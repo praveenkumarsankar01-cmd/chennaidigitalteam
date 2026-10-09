@@ -750,6 +750,9 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
 .wc-btn{display:inline-flex;align-items:center;gap:.6rem;width:fit-content;padding:.72rem 1.6rem;border-radius:12px;background:linear-gradient(135deg,#171922,#3b82f6);color:#fff;font-size:.85rem;font-weight:800;text-decoration:none;box-shadow:0 8px 24px rgba(23,25,34,.35);transition:transform .35s var(--ease),box-shadow .35s var(--ease)}
 .wc-btn:hover{transform:translateX(6px);box-shadow:0 12px 36px rgba(23,25,34,.55)}
 .wc-btn .ic{font-size:.75rem}
+.wc-acts{display:flex;flex-wrap:wrap;gap:.6rem}
+.wc-btn-alt{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);box-shadow:none;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.wc-btn-alt:hover{background:rgba(255,255,255,.26);box-shadow:none}
 @media(max-width:1024px){.wc-card{flex-basis:calc((100% - 1.8rem)/2);height:440px}}
 @media(max-width:640px){.wc-wrap{padding:1.6rem 1rem 3rem}.wc-grid{gap:1.2rem}.wc-card{flex-basis:100%;height:420px;border-radius:22px}.wc-content{padding:1.4rem}.wc-title{font-size:1.35rem}.wc-heading{font-size:1.5rem;margin-bottom:1.1rem}}
 
@@ -2033,10 +2036,6 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
   <!-- TOP BAR -->
   <div class="ps-topbar">
     <div class="ps-brand">Praveen<span>.</span> <span style="color:var(--t3);font-weight:500;font-size:.85rem;margin-left:.4rem">— Project Showcase</span></div>
-    <div class="ps-tabs" id="wcTabs">
-      <button class="ps-tab act" onclick="psJump('wc-websites',this)"><i style="margin-right:.4rem" class="fas fa-laptop-code ic ic-laptop-code" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-laptop-code"/></svg></i>Websites</button>
-      <button class="ps-tab" onclick="psJump('wc-funnels',this)"><i style="margin-right:.4rem" class="fas fa-funnel-dollar ic ic-filter-circle-dollar" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-filter-circle-dollar"/></svg></i>Sales Funnels</button>
-    </div>
     <button class="ps-close" onclick="closeProjectShowcase()" title="Close"><i class="fas fa-times ic ic-xmark" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-xmark"/></svg></i></button>
   </div>
 
@@ -2053,10 +2052,10 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="wc-number">01</div>
         <div class="wc-badge"><i class="fas fa-hospital ic ic-hospital" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-hospital"/></svg></i>Healthcare</div>
         <div class="wc-content">
-          <div class="wc-tags"><span class="wc-tag">Online Booking</span><span class="wc-tag">Admin Panel</span><span class="wc-tag">Mobile-Ready</span></div>
+          <div class="wc-tags"><span class="wc-tag">Online Booking</span><span class="wc-tag">9 Speciality Pages</span><span class="wc-tag">Mobile-Ready</span></div>
           <h3 class="wc-title">Alpha Clinic</h3>
           <p class="wc-desc">Clinic website for a multi-speciality practice in Chennai. Patients book online and every request reaches the front desk instantly.</p>
-          <a class="wc-btn" href="https://alpha-clinic-bay.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
+          <div class="wc-acts"><a class="wc-btn" href="https://alpha-clinic-bay.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a><a class="wc-btn wc-btn-alt" href="https://clinic-admin-panel-black.vercel.app/" target="_blank" rel="noopener">Admin Panel</a></div>
         </div>
       </article>
       <article class="wc-card">
@@ -2093,18 +2092,6 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
           <h3 class="wc-title">Keystone Fence &amp; Deck</h3>
           <p class="wc-desc">Contractor website for a fence and deck builder in Texas, with service and city pages and a two-step estimate form.</p>
           <a class="wc-btn" href="https://keystone-fence02.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
-        </div>
-      </article>
-      <article class="wc-card">
-        <div class="wc-bg" data-bg="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&amp;h=600&amp;fit=crop&amp;auto=format&amp;q=70" style="background-position:center"></div>
-        <div class="wc-overlay"></div>
-        <div class="wc-number">05</div>
-        <div class="wc-badge"><i class="fas fa-chart-bar ic ic-chart-bar" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-chart-bar"/></svg></i>Admin Panel</div>
-        <div class="wc-content">
-          <div class="wc-tags"><span class="wc-tag">Live Bookings</span><span class="wc-tag">Secure Login</span><span class="wc-tag">Patient Records</span></div>
-          <h3 class="wc-title">Clinic Admin Dashboard</h3>
-          <p class="wc-desc">Front desk dashboard for Alpha Clinic. Every booking from the website shows up here in real time.</p>
-          <a class="wc-btn" href="https://clinic-admin-panel-black.vercel.app/" target="_blank" rel="noopener">Visit Site <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
         </div>
       </article>
       </div>
@@ -3061,23 +3048,11 @@ function openProjectShowcase(){
   document.getElementById('projectShowcase').classList.add('open');
   document.body.style.overflow='hidden';
   document.getElementById('wcBody').scrollTop=0;
-  psJump(null,document.querySelector('#wcTabs .ps-tab'));
 }
 function closeProjectShowcase(){
   document.getElementById('projectShowcase').classList.remove('open');
   document.body.style.overflow='';
 }
-function psJump(id,btn){
-  document.querySelectorAll('#wcTabs .ps-tab').forEach(t=>t.classList.remove('act'));
-  if(btn)btn.classList.add('act');
-  const sec=id&&document.getElementById(id);
-  if(sec)sec.scrollIntoView({behavior:'smooth',block:'start'});
-}
-document.getElementById('wcBody').addEventListener('scroll',function(){
-  const tabs=document.querySelectorAll('#wcTabs .ps-tab'),f=document.getElementById('wc-funnels');
-  const on=f.getBoundingClientRect().top<this.clientHeight*.45?1:0;
-  tabs.forEach((t,i)=>t.classList.toggle('act',i===on));
-},{passive:true});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closeProjectShowcase();});
 function openSeoShowcase(){
   gtag('event','view_showcase',{showcase:'seo'});
