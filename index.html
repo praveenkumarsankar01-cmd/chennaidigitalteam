@@ -847,6 +847,18 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
 
 @media(max-width:900px){.pp-hero-content{padding:2rem 1.75rem}.pp-wrap{padding:2rem 1.25rem}.pp-stats{grid-template-columns:repeat(2,1fr)}.pp-2col{grid-template-columns:1fr}.ps-tabs{display:none}.ps-topbar{flex-wrap:wrap;gap:.6rem}.pp-admin-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){.pp-stats{grid-template-columns:1fr 1fr}.pp-admin-grid{grid-template-columns:1fr 1fr}.pp-ctas{flex-direction:column}.pp-cta-btns{width:100%}.pp-cta-btns .btn-glow,.pp-cta-btns .btn-outline{width:100%;justify-content:center}}
+/* Vynox analytics demo gallery (sample data) */
+.vx-demo{margin:0 0 2.5rem}
+.vx-note{display:flex;gap:.75rem;align-items:flex-start;background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.45);border-radius:14px;padding:1rem 1.2rem;margin:0 0 1.5rem;color:var(--t2);font-size:.92rem;line-height:1.6}
+.vx-note b{color:var(--t1)}
+.vx-badge{flex:none;background:#fbbf24;color:#1f2937;font-weight:800;font-size:.7rem;letter-spacing:.08em;padding:.3rem .7rem;border-radius:99px;margin-top:.1rem}
+.vx-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.vx-item{margin:0;background:var(--glass);border:1px solid var(--glass-b);border-radius:16px;overflow:hidden}
+.vx-item img{display:block;width:100%;height:auto;background:#eef1f5}
+.vx-item figcaption{padding:.9rem 1.1rem 1.1rem;font-size:.88rem;line-height:1.55;color:var(--t3)}
+.vx-item figcaption b{display:block;color:var(--t1);font-size:.95rem;margin-bottom:.2rem}
+.vx-wide{grid-column:1/-1}
+@media(max-width:768px){.vx-grid{grid-template-columns:1fr}}
 /* SEO Showcase uses same ps-* base but scoped to #seoShowcase */
 #seoShowcase{position:fixed;inset:0;z-index:2000;background:var(--bg0);display:flex;flex-direction:column;opacity:0;visibility:hidden;transform:translateY(30px);transition:opacity .4s var(--ease),visibility .4s,transform .4s var(--ease)}
 #seoShowcase.open{opacity:1;visibility:visible;transform:translateY(0)}
@@ -2159,8 +2171,6 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
     <div class="ps-brand">Praveen<span>.</span> <span style="color:var(--t3);font-weight:500;font-size:.85rem;margin-left:.4rem">— SEO Campaign Showcase</span></div>
     <div class="ps-tabs" id="seoTabs">
       <button class="ps-tab act" onclick="switchSeoTab(0,this)"><i class="fas fa-shopping-bag ic ic-bag-shopping" style="margin-right:.4rem" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-bag-shopping"/></svg></i><span class="ps-tl">Vynox Men's Wear</span><span class="ps-ts">Vynox</span></button>
-      <button class="ps-tab" onclick="switchSeoTab(1,this)"><i class="fas fa-hospital ic ic-hospital" style="margin-right:.4rem" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-hospital"/></svg></i><span class="ps-tl">Alpha Clinic</span><span class="ps-ts">Clinic</span></button>
-      <button class="ps-tab" onclick="switchSeoTab(2,this)"><i class="fas fa-search-plus ic ic-magnifying-glass-plus" style="margin-right:.4rem" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-magnifying-glass-plus"/></svg></i><span class="ps-tl">Technical SEO Audit</span><span class="ps-ts">SEO Audit</span></button>
     </div>
     <button class="ps-close" onclick="closeSeoShowcase()" title="Close"><i class="fas fa-times ic ic-xmark" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-xmark"/></svg></i></button>
   </div>
@@ -2191,6 +2201,19 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
       </div>
 
       <div class="seo-wrap">
+
+        <!-- GA4 + Search Console demo (sample data) -->
+        <div class="vx-demo">
+          <div class="seo-sh"><div class="seo-sh-ic"><i class="fas fa-chart-bar ic ic-chart-bar" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-chart-bar"/></svg></i></div><h3>GA4 &amp; Search Console Setup (Demo)</h3></div>
+          <div class="vx-note"><span class="vx-badge">DEMO</span><span><b>Demo project with sample data.</b> These dashboards show the GA4 event tracking, e-commerce funnel tracking and Search Console reporting I set up. The traffic, sales and revenue figures are illustrative, not real business results.</span></div>
+          <div class="vx-grid">
+            <figure class="vx-item vx-wide"><img decoding="async" loading="lazy" data-src="assets/demo-ga4-overview.webp" width="1550" height="966" alt="GA4 e-commerce overview (demo, sample data)"><figcaption><b>GA4 e-commerce overview</b>Users, engaged sessions, conversion rate and revenue, plus views, add-to-carts and purchases for each product.</figcaption></figure>
+            <figure class="vx-item"><img decoding="async" loading="lazy" data-src="assets/demo-ga4-debugview.webp" width="1600" height="850" alt="Event tracking check (Tag Assistant + DebugView) (demo, sample data)"><figcaption><b>Event tracking check (Tag Assistant + DebugView)</b>Testing that view_item, add_to_cart, begin_checkout and purchase fire in order, with the transaction ID, value and items.</figcaption></figure>
+            <figure class="vx-item"><img decoding="async" loading="lazy" data-src="assets/demo-ga4-funnel.webp" width="1110" height="1031" alt="E-commerce funnel exploration (demo, sample data)"><figcaption><b>E-commerce funnel exploration</b>Shows where shoppers drop off between session start and purchase, split by desktop, mobile and tablet.</figcaption></figure>
+            <figure class="vx-item"><img decoding="async" loading="lazy" data-src="assets/demo-ga4-channels.webp" width="1600" height="925" alt="Traffic acquisition by channel (demo, sample data)"><figcaption><b>Traffic acquisition by channel</b>Organic search, direct, social, referral, email and paid, compared on sessions, engagement and conversions.</figcaption></figure>
+            <figure class="vx-item"><img decoding="async" loading="lazy" data-src="assets/demo-gsc-performance.webp" width="1460" height="806" alt="Search Console performance (demo, sample data)"><figcaption><b>Search Console performance</b>Clicks, impressions, CTR and average position for the store's product search terms, plus Core Web Vitals.</figcaption></figure>
+          </div>
+        </div>
 
         <!-- Stats -->
         <div class="seo-stats">
@@ -2261,214 +2284,11 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
           <p>Explore the live Vynox Men's Wear website — fully SEO-optimised and ranking for buyer-intent fashion keywords.</p>
           <div class="seo-cta-btns">
             <a href="https://vynox-menswear.vercel.app/" target="_blank" class="btn-glow"><i class="fas fa-external-link-alt ic ic-up-right-from-square" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-up-right-from-square"/></svg></i>Visit Live Website</a>
-            <button onclick="switchSeoTab(1,document.querySelectorAll('#seoTabs .ps-tab')[1])" class="btn-outline"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>Next: Alpha Clinic</button>
           </div>
         </div>
 
       </div>
     </div><!-- /seo-panel0 -->
-
-
-    <!-- ══════════════════════════════════════
-         SEO PANEL 2 — ALPHA CLINIC
-    ══════════════════════════════════════ -->
-    <div class="seo-panel" id="seo-panel1">
-
-      <div class="seo-hero">
-        <div class="seo-hero-bg" data-bg="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1400&h=600&fit=crop&auto=format&q=80"></div>
-        <div class="seo-hero-overlay"></div>
-        <div class="seo-hero-content">
-          <div class="seo-eyebrow"><i class="fas fa-map-marker-alt ic ic-location-dot" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-location-dot"/></svg></i> Healthcare Website · Local SEO Campaign</div>
-          <h2>Alpha Clinic — <span>Local SEO Case Study</span></h2>
-          <p class="seo-hero-sub">A targeted local SEO strategy built for a Chennai-based healthcare clinic — helping patients find the clinic on Google Maps, improving trust signals, and driving appointment enquiries through organic search.</p>
-          <div class="seo-tags">
-            <span class="seo-tag"><i class="fas fa-map-marked-alt ic ic-map-location-dot" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-map-location-dot"/></svg></i>Local SEO</span>
-            <span class="seo-tag"><i class="fab fa-google ic ic-b-google" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 488 512"><use href="#i-b-google"/></svg></i>Google Business Profile</span>
-            <span class="seo-tag"><i class="fas fa-hospital ic ic-hospital" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-hospital"/></svg></i>Medical Keywords</span>
-            <span class="seo-tag"><i class="fas fa-star ic ic-star" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-star"/></svg></i>E-E-A-T Signals</span>
-            <span class="seo-tag"><i class="fas fa-code ic ic-code" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-code"/></svg></i>Local Schema</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="seo-wrap">
-
-        <!-- Stats -->
-        <div class="seo-stats">
-          <div class="seo-stat"><div class="seo-stat-val">Maps</div><div class="seo-stat-lbl">Google Local Pack Visibility</div></div>
-          <div class="seo-stat"><div class="seo-stat-val">25+</div><div class="seo-stat-lbl">Medical Keywords Ranked</div></div>
-          <div class="seo-stat"><div class="seo-stat-val">3×</div><div class="seo-stat-lbl">Enquiry Volume Increase</div></div>
-          <div class="seo-stat"><div class="seo-stat-val">100%</div><div class="seo-stat-lbl">NAP Consistency</div></div>
-        </div>
-
-        <!-- Real Screenshot -->
-        <div class="seo-img-block">
-          <img decoding="async" data-src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1200&h=500&fit=crop&auto=format&q=80" alt="Local SEO — Google Maps Local Pack & Analytics Performance" loading="lazy">
-          <div class="seo-img-caption"><i class="fas fa-map-marker-alt ic ic-location-dot" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-location-dot"/></svg></i> Local SEO Performance — Google Search Console & Maps Visibility Tracking for Alpha Clinic</div>
-        </div>
-
-        <!-- Local SEO Foundation -->
-        <div class="seo-full">
-          <div class="seo-sh"><div class="seo-sh-ic"><i class="fas fa-map-marked-alt ic ic-map-location-dot" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-map-location-dot"/></svg></i></div><h3>Local SEO Foundation</h3></div>
-          <div class="seo-2col">
-            <div class="seo-features">
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fab fa-google ic ic-b-google" aria-hidden="true"><svg viewBox="0 0 488 512"><use href="#i-b-google"/></svg></i></div><div class="seo-feat-txt"><h4>Google Business Profile Optimisation</h4><p>Full GBP setup and optimisation — clinic services listed, high-quality photos added, operating hours confirmed, and a patient-focused business description targeting "clinic Kodambakkam Chennai" and nearby patient searches.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-location-arrow ic ic-location-arrow" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-location-arrow"/></svg></i></div><div class="seo-feat-txt"><h4>NAP Consistency Audit</h4><p>Name, Address, and Phone number verified and standardised across the website, GBP, and all online directory mentions — a critical local ranking factor that builds trust with Google's local algorithm.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-map-pin ic ic-map-pin" aria-hidden="true"><svg viewBox="0 0 320 512"><use href="#i-map-pin"/></svg></i></div><div class="seo-feat-txt"><h4>Local Keyword Targeting</h4><p>High-intent local keywords identified and integrated throughout the site: "clinic in Kodambakkam Chennai", "doctor near me Chennai", "multi-speciality clinic Kodambakkam" — capturing patients actively searching for nearby healthcare services.</p></div></div>
-            </div>
-            <div class="seo-features">
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-code ic ic-code" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-code"/></svg></i></div><div class="seo-feat-txt"><h4>LocalBusiness & MedicalClinic Schema</h4><p>Structured data markup added using LocalBusiness and MedicalClinic schema types — signaling clinic details directly to Google and improving eligibility for rich knowledge panel and local pack results.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-star ic ic-star" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-star"/></svg></i></div><div class="seo-feat-txt"><h4>E-E-A-T & Trust Signal Building</h4><p>Doctor credentials, clinic certifications, and years of experience prominently placed to strengthen Google's Expertise, Experience, Authority and Trust evaluation — critical for healthcare content that impacts patient decisions.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-comment-dots ic ic-comment-dots" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-comment-dots"/></svg></i></div><div class="seo-feat-txt"><h4>FAQ Content for Featured Snippets</h4><p>Structured FAQ sections added targeting common patient questions — optimised for voice search, zero-click featured snippets, and People Also Ask boxes to capture additional search visibility without paid ads.</p></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- On-Page & Technical -->
-        <div class="seo-full">
-          <div class="seo-sh"><div class="seo-sh-ic"><i class="fas fa-file-medical ic ic-file-medical" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-file-medical"/></svg></i></div><h3>On-Page & Technical SEO for Healthcare</h3></div>
-          <div class="seo-2col">
-            <div class="seo-features">
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-tag ic ic-tag" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-tag"/></svg></i></div><div class="seo-feat-txt"><h4>Service Page Optimisation</h4><p>Each clinic service page individually optimised with a unique H1, targeted title tag, compelling meta description, and service-specific keywords — making each page compete independently in search results.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-calendar-check ic ic-calendar-check" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-calendar-check"/></svg></i></div><div class="seo-feat-txt"><h4>Booking Form Semantic Markup</h4><p>Appointment booking and patient enquiry forms structured with semantic HTML labels and ARIA attributes — improving both accessibility and crawler understanding of the site's primary conversion actions.</p></div></div>
-            </div>
-            <div class="seo-features">
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-tachometer-alt ic ic-gauge-high" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-gauge-high"/></svg></i></div><div class="seo-feat-txt"><h4>Page Speed & Performance</h4><p>Images compressed, render-blocking resources deferred, and CSS/JS minified. Mobile load time optimised — essential for local patients searching on mobile devices with variable connectivity in Chennai.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-project-diagram ic ic-diagram-project" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-diagram-project"/></svg></i></div><div class="seo-feat-txt"><h4>Internal Linking for Authority Flow</h4><p>Internal links built between service pages, about page, doctor profiles, and the contact/booking section — distributing page authority and guiding both users and crawlers through the clinic's key conversion path.</p></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Results -->
-        <div class="seo-result-card">
-          <div class="seo-sh"><div class="seo-sh-ic"><i class="fas fa-trophy ic ic-trophy" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-trophy"/></svg></i></div><h3>Campaign Results & Patient Impact</h3></div>
-          <p>The local SEO strategy for Alpha Clinic produced tangible improvements in both search visibility and patient enquiry volume. The clinic achieved placement in Google's local map pack for key Kodambakkam healthcare searches, and the structured on-page optimisation drove a significant increase in appointment form submissions from organic traffic.</p>
-          <div class="seo-result-grid">
-            <div class="seo-result-item"><i class="fas fa-map-marker-alt ic ic-location-dot" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-location-dot"/></svg></i><h4>Local Pack Ranking</h4><p>Clinic appearing in Google Maps local pack for high-intent Chennai healthcare searches</p></div>
-            <div class="seo-result-item"><i class="fas fa-calendar-plus ic ic-calendar-plus" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-calendar-plus"/></svg></i><h4>3× Enquiry Volume</h4><p>Appointment enquiry submissions tripled compared to pre-SEO baseline measurement</p></div>
-            <div class="seo-result-item"><i class="fas fa-search ic ic-magnifying-glass" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-magnifying-glass"/></svg></i><h4>25+ Keywords Ranked</h4><p>Medical and local service keywords ranking across page 1 and 2 of Google results</p></div>
-          </div>
-          <div class="seo-techs">
-            <span class="seo-tech"><i class="fab fa-google ic ic-b-google" aria-hidden="true"><svg viewBox="0 0 488 512"><use href="#i-b-google"/></svg></i>Google Search Console</span>
-            <span class="seo-tech"><i class="fab fa-google ic ic-b-google" aria-hidden="true"><svg viewBox="0 0 488 512"><use href="#i-b-google"/></svg></i>Google Business Profile</span>
-            <span class="seo-tech"><i class="fas fa-map-marker-alt ic ic-location-dot" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-location-dot"/></svg></i>Local Schema</span>
-            <span class="seo-tech"><i class="fas fa-chart-bar ic ic-chart-bar" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-chart-bar"/></svg></i>Semrush</span>
-            <span class="seo-tech"><i class="fas fa-tachometer-alt ic ic-gauge-high" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-gauge-high"/></svg></i>Core Web Vitals</span>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="seo-ctas">
-          <p>Visit the live Alpha Clinic website — fully SEO-optimised for local patient searches in Chennai and Kodambakkam.</p>
-          <div class="seo-cta-btns">
-            <a href="https://alpha-clinic-bay.vercel.app/" target="_blank" class="btn-glow"><i class="fas fa-external-link-alt ic ic-up-right-from-square" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-up-right-from-square"/></svg></i>Visit Live Website</a>
-            <button onclick="switchSeoTab(2,document.querySelectorAll('#seoTabs .ps-tab')[2])" class="btn-outline"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>Next: Technical Audit</button>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- /seo-panel1 -->
-
-
-    <!-- ══════════════════════════════════════
-         SEO PANEL 3 — TECHNICAL SEO AUDIT
-    ══════════════════════════════════════ -->
-    <div class="seo-panel" id="seo-panel2">
-
-      <div class="seo-hero">
-        <div class="seo-hero-bg" data-bg="https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=1400&h=600&fit=crop&auto=format&q=80"></div>
-        <div class="seo-hero-overlay"></div>
-        <div class="seo-hero-content">
-          <div class="seo-eyebrow"><i class="fas fa-search-plus ic ic-magnifying-glass-plus" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-magnifying-glass-plus"/></svg></i> Multi-Site SEO · Technical Audit & Strategy</div>
-          <h2>Technical SEO <span>Audit Summary</span></h2>
-          <p class="seo-hero-sub">A structured technical SEO audit and full implementation roadmap executed across both client websites — identifying critical crawl issues, prioritizing fixes by impact, and building a repeatable SEO foundation for long-term organic growth.</p>
-          <div class="seo-tags">
-            <span class="seo-tag"><i class="fas fa-bug ic ic-bug" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-bug"/></svg></i>Crawl Audit</span>
-            <span class="seo-tag"><i class="fas fa-chart-bar ic ic-chart-bar" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-chart-bar"/></svg></i>Semrush Audit</span>
-            <span class="seo-tag"><i class="fas fa-exclamation-triangle ic ic-triangle-exclamation" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-triangle-exclamation"/></svg></i>Issue Resolution</span>
-            <span class="seo-tag"><i class="fas fa-sitemap ic ic-sitemap" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-sitemap"/></svg></i>Site Architecture</span>
-            <span class="seo-tag"><i class="fas fa-sync ic ic-arrows-rotate" style="margin-right:.3rem" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-arrows-rotate"/></svg></i>Ongoing Strategy</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="seo-wrap">
-
-        <!-- Stats -->
-        <div class="seo-stats">
-          <div class="seo-stat"><div class="seo-stat-val">2</div><div class="seo-stat-lbl">Client Sites Audited</div></div>
-          <div class="seo-stat"><div class="seo-stat-val">50+</div><div class="seo-stat-lbl">SEO Issues Fixed</div></div>
-          <div class="seo-stat"><div class="seo-stat-val">100%</div><div class="seo-stat-lbl">Core Web Vitals Pass</div></div>
-          <div class="seo-stat"><div class="seo-stat-val">2×</div><div class="seo-stat-lbl">Avg. Organic Visibility</div></div>
-        </div>
-
-        <!-- Real Screenshot -->
-        <div class="seo-img-block">
-          <img decoding="async" data-src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1200&h=500&fit=crop&auto=format&q=80" alt="SEO Audit Report — Technical Issues & Site Health Score" loading="lazy">
-          <div class="seo-img-caption"><i class="fas fa-search ic ic-magnifying-glass" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-magnifying-glass"/></svg></i> Technical SEO Audit Dashboard — Site Health Score, Crawl Issues & Priority Fix List (Semrush)</div>
-        </div>
-
-        <!-- Audit Methodology -->
-        <div class="seo-full">
-          <div class="seo-sh"><div class="seo-sh-ic"><i class="fas fa-clipboard-list ic ic-clipboard-list" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-clipboard-list"/></svg></i></div><h3>Audit Methodology & Tools Used</h3></div>
-          <div class="seo-2col">
-            <div class="seo-features">
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-spider ic ic-spider" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-spider"/></svg></i></div><div class="seo-feat-txt"><h4>Full Crawl Audit via Semrush</h4><p>Complete site crawl performed using Semrush Site Audit to surface broken links, redirect chains, orphaned pages, missing tags, slow pages, and duplicate content — producing a prioritised issue list by severity.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fab fa-google ic ic-b-google" aria-hidden="true"><svg viewBox="0 0 488 512"><use href="#i-b-google"/></svg></i></div><div class="seo-feat-txt"><h4>Google Search Console Analysis</h4><p>Impressions vs. clicks gap analysis performed to identify high-ranking pages with low CTR — revealing title tag and meta description optimisation opportunities to improve click-through rates without changing rankings.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-binoculars ic ic-binoculars" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-binoculars"/></svg></i></div><div class="seo-feat-txt"><h4>Competitor Keyword Gap Analysis</h4><p>Keyword gap analysis run against top competitors in both fashion and healthcare niches — uncovering untapped ranking opportunities where competitors rank but the client websites had no indexed content or coverage.</p></div></div>
-            </div>
-            <div class="seo-features">
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-tachometer-alt ic ic-gauge-high" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-gauge-high"/></svg></i></div><div class="seo-feat-txt"><h4>GTmetrix & PageSpeed Insights</h4><p>Performance audits run through GTmetrix and Google PageSpeed Insights for both mobile and desktop — identifying and resolving largest contentful paint, cumulative layout shift, and first input delay issues.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-robot ic ic-robot" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-robot"/></svg></i></div><div class="seo-feat-txt"><h4>Crawlability & Indexability Check</h4><p>Robots.txt and sitemap audit confirmed all key pages were crawlable and indexable. No valuable pages were blocked. Index coverage report in GSC reviewed to identify and reinstate any accidentally noindexed pages.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-file-code ic ic-file-code" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-file-code"/></svg></i></div><div class="seo-feat-txt"><h4>Structured Data Validation</h4><p>All schema markup tested via Google's Rich Results Test tool. Schema errors resolved and valid structured data confirmed for Product, LocalBusiness, MedicalClinic, and BreadcrumbList types across both sites.</p></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Key Fixes -->
-        <div class="seo-full">
-          <div class="seo-sh"><div class="seo-sh-ic"><i class="fas fa-wrench ic ic-wrench" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-wrench"/></svg></i></div><h3>Key Technical Issues Fixed</h3></div>
-          <div class="seo-2col">
-            <div class="seo-features">
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-unlink ic ic-link-slash" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-link-slash"/></svg></i></div><div class="seo-feat-txt"><h4>404 Errors & Redirect Chains</h4><p>All 404 broken link errors identified and resolved. 301 permanent redirects set up for all changed or restructured URLs — ensuring no link equity was lost during site updates and visitors never hit dead pages.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-copy ic ic-copy" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-copy"/></svg></i></div><div class="seo-feat-txt"><h4>Duplicate Title Tags & Meta Descriptions</h4><p>Duplicate and missing title tags and meta descriptions identified across both sites and replaced with unique, keyword-targeted copy — eliminating cannibalisation and improving individual page ranking potential.</p></div></div>
-            </div>
-            <div class="seo-features">
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-lock ic ic-lock" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-lock"/></svg></i></div><div class="seo-feat-txt"><h4>Mixed Content (HTTP/HTTPS) Warnings</h4><p>All HTTP resource references identified and updated to HTTPS — eliminating browser security warnings, ensuring full SSL certificate coverage, and maintaining Google's HTTPS ranking signal across both sites.</p></div></div>
-              <div class="seo-feat"><div class="seo-feat-ic"><i class="fas fa-compress-arrows-alt ic ic-minimize" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-minimize"/></svg></i></div><div class="seo-feat-txt"><h4>Image Compression & Format Upgrade</h4><p>All oversized images compressed and converted to WebP format where supported — reducing total page weight by 40–60%, dramatically improving mobile load times and Core Web Vitals scores across both websites.</p></div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Ongoing Strategy -->
-        <div class="seo-result-card">
-          <div class="seo-sh"><div class="seo-sh-ic"><i class="fas fa-sync-alt ic ic-rotate" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-rotate"/></svg></i></div><h3>Ongoing SEO Strategy & Maintenance</h3></div>
-          <p>SEO is not a one-time task. A structured ongoing strategy was defined for both client websites to sustain and improve rankings over time — covering monthly monitoring, content refresh cycles, and backlink development to build cumulative domain authority.</p>
-          <div class="seo-result-grid">
-            <div class="seo-result-item"><i class="fas fa-calendar-alt ic ic-calendar-days" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-calendar-days"/></svg></i><h4>Monthly GSC Review</h4><p>Google Search Console monitored monthly for new crawl errors, coverage issues, and emerging keyword opportunities</p></div>
-            <div class="seo-result-item"><i class="fas fa-pen-fancy ic ic-pen-fancy" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-pen-fancy"/></svg></i><h4>Quarterly Content Refresh</h4><p>Existing pages reviewed and updated quarterly to maintain topical freshness and improve position for competitive keywords</p></div>
-            <div class="seo-result-item"><i class="fas fa-external-link-alt ic ic-up-right-from-square" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-up-right-from-square"/></svg></i><h4>Backlink Development</h4><p>Off-page SEO roadmap created — identifying quality link-building opportunities to grow domain authority over time</p></div>
-          </div>
-          <div class="seo-techs">
-            <span class="seo-tech"><i class="fas fa-chart-bar ic ic-chart-bar" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-chart-bar"/></svg></i>Semrush</span>
-            <span class="seo-tech"><i class="fab fa-google ic ic-b-google" aria-hidden="true"><svg viewBox="0 0 488 512"><use href="#i-b-google"/></svg></i>Google Search Console</span>
-            <span class="seo-tech"><i class="fas fa-tachometer-alt ic ic-gauge-high" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-gauge-high"/></svg></i>GTmetrix</span>
-            <span class="seo-tech"><i class="fas fa-code ic ic-code" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-code"/></svg></i>Schema.org</span>
-            <span class="seo-tech"><i class="fas fa-bolt ic ic-bolt" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-bolt"/></svg></i>PageSpeed Insights</span>
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="seo-ctas">
-          <p>Interested in an SEO audit and strategy for your website? Let's review your current search visibility and build a plan to grow it.</p>
-          <div class="seo-cta-btns">
-            <a href="#contact" onclick="closeSeoShowcase()" class="btn-glow"><i class="fas fa-envelope ic ic-envelope" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-envelope"/></svg></i>Get an SEO Audit</a>
-            <button onclick="switchSeoTab(0,document.querySelectorAll('#seoTabs .ps-tab')[0])" class="btn-outline"><i class="fas fa-redo ic ic-arrow-rotate-right" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-arrow-rotate-right"/></svg></i>Back to Vynox SEO</button>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- /seo-panel2 -->
 
   </div><!-- /ps-body -->
 </div><!-- /seoShowcase -->
