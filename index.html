@@ -373,29 +373,43 @@ body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t2);overf
 .services-label{display:inline-block;color:var(--primary);font-size:.75rem;font-weight:800;letter-spacing:.2em;text-transform:uppercase;margin-bottom:1rem;padding:.3rem .95rem;background:rgba(23,25,34,.1);border:1px solid rgba(23,25,34,.22);border-radius:99px}
 .services-title{font-size:clamp(1.9rem,4vw,3rem);font-weight:900;color:var(--t1);margin-bottom:1.5rem;letter-spacing:-.025em;line-height:1.1}
 .services-desc{color:var(--t3);font-size:1.05rem;max-width:650px;line-height:1.7;margin:0 auto}
-.services-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2.2rem;margin-top:3rem}
-.service-card{position:relative;height:480px;border-radius:32px;overflow:hidden;cursor:pointer;border:2px solid rgba(255,255,255,.1);transition:all .5s var(--ease);box-shadow:0 12px 48px rgba(0,0,0,.15)}
-.service-card:hover{transform:translateY(-16px);box-shadow:0 28px 72px rgba(23,25,34,.25);border-color:rgba(23,25,34,.3)}
-.service-bg{position:absolute;inset:0;background-size:cover;background-position:center;z-index:0;transition:transform .8s cubic-bezier(.2,.5,.3,1)}
-.service-card:hover .service-bg{transform:scale(1.12) rotate(1.2deg)}
-.service-seo.bg-in .service-bg{background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&auto=format&q=70');background-position:center 30%}
-.service-ads.bg-in .service-bg{background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&auto=format&q=70');background-position:center 30%}
-.service-web.bg-in .service-bg{background-image:url('https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600&fit=crop&auto=format&q=70');background-position:center center}
-.service-design.bg-in .service-bg{background-image:url('https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=800&h=600&fit=crop&auto=format&q=70');background-position:center center}
-.service-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(20,25,40,.1) 0%,rgba(20,25,40,.15) 15%,rgba(20,25,40,.25) 30%,rgba(20,25,40,.4) 50%,rgba(20,25,40,.6) 70%,rgba(20,25,40,.82) 100%);z-index:1;transition:background .4s var(--ease)}
-[data-theme="dark"] .service-overlay{background:linear-gradient(180deg,rgba(5,5,10,.15) 0%,rgba(5,5,10,.2) 15%,rgba(5,5,10,.3) 30%,rgba(5,5,10,.5) 50%,rgba(5,5,10,.7) 70%,rgba(5,5,10,.92) 100%)}
-.service-card:hover .service-overlay{background:linear-gradient(180deg,rgba(20,25,40,.05) 0%,rgba(20,25,40,.08) 15%,rgba(20,25,40,.15) 30%,rgba(20,25,40,.35) 50%,rgba(20,25,40,.55) 70%,rgba(20,25,40,.78) 100%)}
-.service-number{position:absolute;top:1.8rem;left:1.8rem;z-index:3;font-size:1.8rem;font-weight:900;color:rgba(255,255,255,.35);letter-spacing:.05em}
-.service-badge{position:absolute;top:1.8rem;right:1.8rem;z-index:3;background:rgba(255,255,255,.92);backdrop-filter:blur(16px);padding:.55rem 1.3rem;border-radius:24px;font-size:.8rem;font-weight:700;color:var(--primary);display:flex;align-items:center;gap:.5rem;box-shadow:0 6px 20px rgba(0,0,0,.1);transition:all .4s var(--ease);border:1px solid rgba(255,255,255,.5)}
-.service-badge i{font-size:.75rem;color:var(--primary)}
-.service-card:hover .service-badge{background:var(--grad);color:#fff;box-shadow:0 10px 32px rgba(23,25,34,.45);border-color:var(--primary)}
-.service-card:hover .service-badge i{color:#fff}
-.service-content{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:2.2rem;display:flex;flex-direction:column;gap:1rem}
-.service-tags{display:flex;flex-wrap:wrap;gap:.7rem}
-.service-tag{background:rgba(255,255,255,.18);backdrop-filter:blur(12px);padding:.45rem 1rem;border-radius:16px;font-size:.75rem;font-weight:700;color:rgba(255,255,255,.9);border:1px solid rgba(255,255,255,.25);transition:all .35s var(--ease);letter-spacing:.03em}
-.service-card:hover .service-tag{background:rgba(255,255,255,.28);border-color:rgba(255,255,255,.45);color:#fff}
-.service-title{font-size:1.85rem;font-weight:900;color:#fff;line-height:1.25;letter-spacing:-.015em}
-.service-desc{font-size:.95rem;color:rgba(255,255,255,.88);line-height:1.65}
+/* "How I Can Help You": one fixed photo behind the section (parallax), services in a carousel.
+   The photo is position:fixed inside a clip-path:inset(0) section, so it also stays put on
+   phones (background-attachment:fixed does not). #services is kept out of content-visibility
+   below, because its paint containment would turn the fixed photo into an ordinary one. */
+.svc-fx{background:#0f1117;clip-path:inset(0)}
+.svc-fx-bg{position:fixed;top:0;left:0;width:100%;height:100vh;height:100lvh;z-index:0;pointer-events:none;background:#0f1117 center/cover no-repeat}
+.svc-fx-bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6)}
+.svc-fx.bg-in .svc-fx-bg{background-image:url('assets/svc-bg.webp')}
+@media(max-width:700px){.svc-fx.bg-in .svc-fx-bg{background-image:url('assets/svc-bg-m.webp')}}
+.svc-fx>.container{position:relative;z-index:1}
+.svc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3rem}
+#services .services-label{color:#fff;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
+#services .services-title{color:#fff;margin-bottom:1.1rem}
+#services .services-title::after{content:"";display:block;width:50px;height:3px;margin-top:1rem;border-radius:2px;background:linear-gradient(135deg,#93c5fd,#3b82f6)}
+#services .services-desc{color:rgba(255,255,255,.78);margin:0;max-width:560px}
+.svc-nav{display:flex;gap:.75rem;flex:none}
+.svc-arrow{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;cursor:pointer;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
+.svc-arrow svg{width:18px;height:18px}
+.svc-arrow:hover:not(:disabled),.svc-arrow:focus-visible{background:#fff;color:#171922;border-color:#fff}
+.svc-arrow:disabled{opacity:.35;cursor:default}
+.svc-track{--per:4;--gap:2rem;display:grid;grid-auto-flow:column;grid-auto-columns:calc((100% - (var(--per) - 1) * var(--gap)) / var(--per));gap:var(--gap);overflow-x:auto;scroll-snap-type:x mandatory;overscroll-behavior-x:contain;scrollbar-width:none;padding:12px 0 4px}
+.svc-track::-webkit-scrollbar{display:none}
+.svc-track:focus-visible{outline:2px solid rgba(255,255,255,.6);outline-offset:6px;border-radius:12px}
+.svc-item{scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff;padding:0 .35rem}
+.svc-ic{width:104px;height:104px;border-radius:50%;border:1px solid rgba(255,255,255,.6);display:grid;place-items:center;color:#60a5fa;margin-bottom:1.4rem;transition:transform .4s var(--ease),background .4s var(--ease)}
+.svc-ic svg{width:58px;height:58px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.svc-item:hover .svc-ic{transform:translateY(-6px);background:rgba(255,255,255,.08)}
+.svc-num{font-size:.78rem;font-weight:800;letter-spacing:.18em;color:#93c5fd;margin-bottom:.4rem}
+.svc-name{font-size:1.3rem;font-weight:800;color:#fff;line-height:1.3;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.3em;text-decoration-color:rgba(255,255,255,.7);margin-bottom:.9rem}
+.svc-text{font-size:.93rem;line-height:1.65;color:rgba(255,255,255,.8);margin-bottom:1.1rem}
+.svc-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-bottom:1.4rem}
+.svc-tag{padding:.28rem .75rem;border:1px solid rgba(255,255,255,.4);border-radius:99px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.01em}
+.svc-item .service-btn{margin-top:auto}
+.svc-head,.svc-name,.svc-text{text-shadow:0 1px 14px rgba(0,0,0,.45)}
+@media(max-width:1024px){.svc-track{--per:3}}
+@media(max-width:768px){.svc-track{--per:2;--gap:1.5rem}.svc-head{flex-wrap:wrap;margin-bottom:2.2rem}}
+@media(max-width:540px){.svc-track{--per:1}.svc-head{gap:1.4rem}.svc-nav{margin-left:auto}}
 .service-btn{display:inline-flex;align-items:center;gap:.7rem;padding:.75rem 1.8rem;background:var(--grad);color:#fff;border-radius:12px;text-decoration:none;font-weight:800;font-size:.85rem;border:none;cursor:pointer;transition:all .35s var(--ease);box-shadow:0 8px 24px rgba(23,25,34,.35);width:fit-content;letter-spacing:.01em}
 .service-btn:hover{transform:translateX(8px);box-shadow:0 12px 36px rgba(23,25,34,.55)}
 .service-btn i{font-size:.75rem;transition:transform .35s var(--ease)}
@@ -610,8 +624,6 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
   .stats-inner{padding:0 1rem}
   .tm-grid{grid-template-columns:repeat(2,1fr)}
   .tl-grid{grid-template-columns:repeat(3,1fr)}
-  .services-grid{grid-template-columns:1fr;gap:1.5rem}
-  .service-card{height:360px}
   .pj-grid{grid-template-columns:1fr}
   .ct-wrap{grid-template-columns:1fr}
   .section{padding:4rem 0}
@@ -1241,13 +1253,13 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
    real height is remembered after first render, so the scrollbar
    stays honest and scrolling does not jump. #home is excluded — it
    must paint immediately. */
-#about,#services,#tools,#certificates,
+#about,#tools,#certificates,
 #projects,#experience,#team,#contact{
   content-visibility:auto;
   contain-intrinsic-size:auto 1200px;
 }
 @media print{
-  #about,#services,#tools,#certificates,
+  #about,#tools,#certificates,
   #projects,#experience,#team,#contact{content-visibility:visible}
 }
 
@@ -1393,10 +1405,10 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="act">Home</a></li>
       <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
       <li><a href="#services">Services</a></li>
       <li><a href="#tools">Tools</a></li>
       <li><a href="#certificates">Certs</a></li>
-      <li><a href="#projects">Projects</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#team">Collaborators</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -1546,71 +1558,84 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
   </div>
 </section>
 
-<!-- SERVICES — IMAGE CARD DESIGN -->
-<section id="services" class="section services">
+<!-- PROJECTS -->
+<section id="projects" class="section projects">
   <div class="container">
-    <div class="services-header rv">
-      <span class="services-label">WHAT I DO</span>
-      <h2 class="services-title">How I Can <span class="grad-text">Help You</span></h2>
-      <p class="services-desc">Four things I do well — and actually enjoy doing. Pick what your business needs most.</p>
-    </div>
-    <div class="services-grid">
-
-      <div class="service-card service-web rv" data-d="0">
-        <div class="service-bg"></div>
-        <div class="service-overlay"></div>
-        <div class="service-number">01</div>
-        <div class="service-badge"><i class="fas fa-laptop-code ic ic-laptop-code" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-laptop-code"/></svg></i>Web</div>
-        <div class="service-content">
-          <div class="service-tags"><span class="service-tag">Fast Loading</span><span class="service-tag">Mobile-Ready</span><span class="service-tag">SEO Built-In</span></div>
-          <h3 class="service-title">Website Creation</h3>
-          <p class="service-desc">I build fast, professional websites that visitors trust instantly. Clean design + mobile-friendly + SEO-ready. Sites that convert browsers into leads. Average: 40% increase in enquiries within 90 days.</p>
-          <a href="#contact" class="service-btn">Let's Build It <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
-        </div>
+    <div class="sec-hd rv"><span class="eyebrow">Portfolio</span><h2 class="sec-title">Work I've <span class="grad-text">Done</span></h2><p class="sec-sub">Real projects for real clients — with actual results attached.</p></div>
+    <div class="pj-grid">
+      <div class="pj-card rv" data-d="0">
+        <div class="pj-img"><img src="https://images.pexels.com/photos/5077048/pexels-photo-5077048.jpeg?auto=compress&cs=tinysrgb&w=960&h=578&fit=crop" alt="Business Website Creation" loading="lazy" decoding="async"><div class="pj-ov"></div><div class="pj-tags"><span class="pj-tag">DESIGN</span><span class="pj-tag">DEV</span></div></div>
+        <div class="pj-body"><h3 class="pj-title">Business Website Creation</h3><p class="pj-desc">Built websites for local businesses that needed more than just an online presence — they needed something that actually made visitors trust them and take action. Fast load times, mobile-friendly, and ready to rank on Google from day one.</p><div class="pj-meta"><span class="pj-tech"><i class="fas fa-code ic ic-code" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-code"/></svg></i>Development</span><span class="pj-tech"><i class="fas fa-mobile-alt ic ic-mobile-screen-button" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-mobile-screen-button"/></svg></i>Responsive</span></div><div class="pj-acts"><button class="pj-btn pri" onclick="openProjectShowcase()"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>View Project</button><button class="pj-btn sec" onclick="window.open('https://vynox-menswear.vercel.app/','_blank')"><i class="fas fa-globe ic ic-globe" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-globe"/></svg></i>Live Site</button></div></div>
       </div>
-
-      <div class="service-card service-ads rv" data-d="100">
-        <div class="service-bg"></div>
-        <div class="service-overlay"></div>
-        <div class="service-number">02</div>
-        <div class="service-badge"><i class="fas fa-bullhorn ic ic-bullhorn" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-bullhorn"/></svg></i>Ads</div>
-        <div class="service-content">
-          <div class="service-tags"><span class="service-tag">ROI Focused</span><span class="service-tag">Real Tracking</span><span class="service-tag">Budget Smart</span></div>
-          <h3 class="service-title">Ads Management</h3>
-          <p class="service-desc">Google Ads + Meta Ads that actually work. Smart targeting + constant optimization + full transparency. No guessing games. Every rupee tracked. Average ROI: 4-5x return on ad spend within 60 days.</p>
-          <a href="#contact" class="service-btn">Let's Talk Ads <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
-        </div>
+      <div class="pj-card rv" data-d="100">
+        <div class="pj-img"><img src="assets/pj-ads.webp" alt="Paid Advertising Mastery" loading="lazy" decoding="async"><div class="pj-ov"></div><div class="pj-tags"><span class="pj-tag">Google Ads</span><span class="pj-tag">Meta Ads</span></div></div>
+        <div class="pj-body"><h3 class="pj-title">Google & Meta Ads Management</h3><p class="pj-desc">Ran Google & Meta ad campaigns for a local business that was spending money on ads with nothing to show for it. After restructuring the targeting and messaging, their cost-per-lead dropped by 60% and monthly enquiries tripled — within the first 90 days.</p><div class="pj-meta"><span class="pj-tech"><i class="fas fa-dollar-sign ic ic-dollar-sign" aria-hidden="true"><svg viewBox="0 0 320 512"><use href="#i-dollar-sign"/></svg></i>Budget Optimised</span><span class="pj-tech"><i class="fas fa-bullseye ic ic-bullseye" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-bullseye"/></svg></i>Targeted</span></div><div class="pj-acts"><button class="pj-btn pri" onclick="openAdsShowcase()"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>View Project</button><button class="pj-btn sec"><i class="fas fa-chart-bar ic ic-chart-bar" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-chart-bar"/></svg></i>See Results</button></div></div>
       </div>
-
-      <div class="service-card service-seo rv" data-d="0">
-        <div class="service-bg"></div>
-        <div class="service-overlay"></div>
-        <div class="service-number">03</div>
-        <div class="service-badge"><i class="fas fa-globe ic ic-globe" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-globe"/></svg></i>SEO</div>
-        <div class="service-content">
-          <div class="service-tags"><span class="service-tag">Rankings</span><span class="service-tag">Organic Traffic</span><span class="service-tag">Long-Term</span></div>
-          <h3 class="service-title">SEO & Analytics</h3>
-          <p class="service-desc">Get found on Google without paying per click. On-page SEO, technical fixes, keyword strategy + monthly reporting. Goal: 1st page rankings in 90-180 days. Average: 250%+ organic traffic increase in 6 months.</p>
-          <a href="#contact" class="service-btn">Improve My Ranking <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
-        </div>
+      <div class="pj-card rv" data-d="200">
+        <div class="pj-img"><img src="assets/pj-seo.webp" alt="E-Commerce SEO Campaign" loading="lazy" decoding="async"><div class="pj-ov"></div><div class="pj-tags"><span class="pj-tag">SEO</span><span class="pj-tag">Analytics</span></div></div>
+        <div class="pj-body"><h3 class="pj-title">SEO for Local & E-Commerce Businesses</h3><p class="pj-desc">Handled SEO for three live client websites — fixing technical issues, improving on-page content, and building the kind of search visibility that brings in enquiries without spending on ads every month. Results take time, but they stick.</p><div class="pj-meta"><span class="pj-tech"><i class="fas fa-chart-line ic ic-chart-line" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-chart-line"/></svg></i>SEO</span><span class="pj-tech"><i class="fas fa-search ic ic-magnifying-glass" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-magnifying-glass"/></svg></i>On-Page</span><span class="pj-tech"><i class="fas fa-cog ic ic-gear" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-gear"/></svg></i>Technical</span></div><div class="pj-acts"><button class="pj-btn pri" onclick="openSeoShowcase()"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>View Project</button><button class="pj-btn sec"><i class="fas fa-file-alt ic ic-file-lines" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-file-lines"/></svg></i>Case Study</button></div></div>
       </div>
-
-      <div class="service-card service-design rv" data-d="100">
-        <div class="service-bg"></div>
-        <div class="service-overlay"></div>
-        <div class="service-number">04</div>
-        <div class="service-badge"><i class="fas fa-paint-brush ic ic-paintbrush" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-paintbrush"/></svg></i>Social Media</div>
-        <div class="service-content">
-          <div class="service-tags"><span class="service-tag">Canva + Figma</span><span class="service-tag">Brand Consistent</span><span class="service-tag">Engaging</span></div>
-          <h3 class="service-title">Social Media & Poster Design</h3>
-          <p class="service-desc">Posters, social posts, thumbnails, banners — all on-brand and attention-grabbing. I design assets that stop the scroll and make people remember your business. Full brand design system or one-off projects.</p>
-          <a href="#contact" class="service-btn">See My Design Work <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
-        </div>
+      <div class="pj-card rv" data-d="0">
+        <div class="pj-img"><img src="assets/pj-design.webp" alt="Social Media &amp; Poster Design" loading="lazy" decoding="async" style="object-fit:cover;width:100%;height:100%;border-radius:inherit"><div class="pj-ov"></div><div class="pj-tags"><span class="pj-tag">Poster Design</span><span class="pj-tag">Branding</span><span class="pj-tag">Social Media</span></div></div>
+        <div class="pj-body"><h3 class="pj-title">Social Media &amp; Poster Design</h3><p class="pj-desc">Created posters, promotional graphics, and social media content for several local businesses. The goal was simple: make them look professional and consistent online, so when someone checks their Instagram or WhatsApp status, they actually take the business seriously.</p><div class="pj-meta"><span class="pj-tech"><i class="fas fa-paint-brush ic ic-paintbrush" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-paintbrush"/></svg></i>Design</span><span class="pj-tech"><i class="fas fa-pencil-ruler ic ic-pen-ruler" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-pen-ruler"/></svg></i>Branding</span></div><div class="pj-acts"><button class="pj-btn pri" onclick="openDesignShowcase()"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>View Project</button><button class="pj-btn sec" onclick="openDesignShowcase()"><i class="fas fa-images ic ic-images" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-images"/></svg></i>View Designs</button></div></div>
       </div>
-
     </div>
   </div>
 </section>
+
+<!-- SERVICES — FIXED PHOTO + CAROUSEL -->
+<section id="services" class="section services svc-fx">
+  <div class="svc-fx-bg" aria-hidden="true"></div>
+  <div class="container">
+    <div class="svc-head">
+      <div>
+        <span class="services-label">WHAT I DO</span>
+        <h2 class="services-title">How I Can Help You</h2>
+        <p class="services-desc">Four things I do well — and actually enjoy doing. Pick what your business needs most.</p>
+      </div>
+      <div class="svc-nav">
+        <button type="button" class="svc-arrow svc-prev" aria-label="Previous services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" class="svc-arrow svc-next" aria-label="Next services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+    <div class="svc-track" role="region" aria-label="Services" tabindex="0">
+      <article class="svc-item">
+        <div class="svc-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="10" width="52" height="44" rx="5"/><path d="M6 21h52"/><circle cx="12.5" cy="15.5" r="1.4"/><circle cx="18" cy="15.5" r="1.4"/><circle cx="23.5" cy="15.5" r="1.4"/><rect x="13" y="28" width="16" height="18" rx="2"/><path d="M36 29h15M36 35.5h15M36 42h10"/></svg></div>
+        <div class="svc-num">01</div>
+        <h3 class="svc-name">Website Creation</h3>
+        <p class="svc-text">Fast, professional websites that visitors trust instantly. Clean design, mobile-friendly and SEO-ready. Average: 40% more enquiries within 90 days.</p>
+        <div class="svc-tags"><span class="svc-tag">Fast Loading</span><span class="svc-tag">Mobile-Ready</span><span class="svc-tag">SEO Built-In</span></div>
+        <a href="#contact" class="service-btn">Let's Build It <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
+      </article>
+      <article class="svc-item">
+        <div class="svc-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 27v10a3 3 0 0 0 3 3h6l18 10V14L19 24h-6a3 3 0 0 0-3 3z"/><path d="M19 24v16"/><path d="M21 40l3.6 10.2A2.7 2.7 0 0 0 27.1 52h2.4a2 2 0 0 0 1.9-2.7L28 43.6"/><path d="M44 26a8 8 0 0 1 0 12"/><path d="M49.5 21a15 15 0 0 1 0 22"/></svg></div>
+        <div class="svc-num">02</div>
+        <h3 class="svc-name">Ads Management</h3>
+        <p class="svc-text">Google Ads + Meta Ads that actually work. Smart targeting, constant optimisation, full transparency. Average ROI: 4–5x within 60 days.</p>
+        <div class="svc-tags"><span class="svc-tag">ROI Focused</span><span class="svc-tag">Real Tracking</span><span class="svc-tag">Budget Smart</span></div>
+        <a href="#contact" class="service-btn">Let's Talk Ads <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
+      </article>
+      <article class="svc-item">
+        <div class="svc-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8v48h48"/><path d="M16 48v-7M23 48V36M30 48v-9"/><path d="M15 30l9-9 6 5 11-12"/><path d="M35 14h6v6"/><circle cx="43" cy="39" r="9"/><path d="M49.5 45.5L56 52"/></svg></div>
+        <div class="svc-num">03</div>
+        <h3 class="svc-name">SEO &amp; Analytics</h3>
+        <p class="svc-text">Get found on Google without paying per click. On-page SEO, technical fixes, keyword strategy and monthly reporting. Average: 250%+ organic traffic in 6 months.</p>
+        <div class="svc-tags"><span class="svc-tag">Rankings</span><span class="svc-tag">Organic Traffic</span><span class="svc-tag">Long-Term</span></div>
+        <a href="#contact" class="service-btn">Improve My Ranking <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
+      </article>
+      <article class="svc-item">
+        <div class="svc-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="24" width="32" height="28" rx="3"/><circle cx="15" cy="31.5" r="2.6"/><path d="M10 48l8.5-9.5 6 6 4.5-4.5 6 6.5"/><path d="M55.2 6.8a2.6 2.6 0 0 1 3.7 3.7L45 26.5l-3.6-3.2z"/><path d="M41.4 23.3c-3.4-.5-6.4 2-6.6 5.4-.2 2.6-1.6 4.1-3.6 4.8 5.6 2.6 12.4-.2 13.8-7"/></svg></div>
+        <div class="svc-num">04</div>
+        <h3 class="svc-name">Social Media &amp; Poster Design</h3>
+        <p class="svc-text">Posters, social posts, thumbnails and banners — on-brand and attention-grabbing. Full brand design systems or one-off projects.</p>
+        <div class="svc-tags"><span class="svc-tag">Canva + Figma</span><span class="svc-tag">Brand Consistent</span><span class="svc-tag">Engaging</span></div>
+        <a href="#contact" class="service-btn">See My Design Work <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
+      </article>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- TOOLS -->
 <section id="tools" class="section tools">
@@ -1760,30 +1785,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
 
 
 
-<!-- PROJECTS -->
-<section id="projects" class="section projects">
-  <div class="container">
-    <div class="sec-hd rv"><span class="eyebrow">Portfolio</span><h2 class="sec-title">Work I've <span class="grad-text">Done</span></h2><p class="sec-sub">Real projects for real clients — with actual results attached.</p></div>
-    <div class="pj-grid">
-      <div class="pj-card rv" data-d="0">
-        <div class="pj-img"><img src="https://images.pexels.com/photos/5077048/pexels-photo-5077048.jpeg?auto=compress&cs=tinysrgb&w=960&h=578&fit=crop" alt="Business Website Creation" loading="lazy" decoding="async"><div class="pj-ov"></div><div class="pj-tags"><span class="pj-tag">DESIGN</span><span class="pj-tag">DEV</span></div></div>
-        <div class="pj-body"><h3 class="pj-title">Business Website Creation</h3><p class="pj-desc">Built websites for local businesses that needed more than just an online presence — they needed something that actually made visitors trust them and take action. Fast load times, mobile-friendly, and ready to rank on Google from day one.</p><div class="pj-meta"><span class="pj-tech"><i class="fas fa-code ic ic-code" aria-hidden="true"><svg viewBox="0 0 640 512"><use href="#i-code"/></svg></i>Development</span><span class="pj-tech"><i class="fas fa-mobile-alt ic ic-mobile-screen-button" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-mobile-screen-button"/></svg></i>Responsive</span></div><div class="pj-acts"><button class="pj-btn pri" onclick="openProjectShowcase()"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>View Project</button><button class="pj-btn sec" onclick="window.open('https://vynox-menswear.vercel.app/','_blank')"><i class="fas fa-globe ic ic-globe" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-globe"/></svg></i>Live Site</button></div></div>
-      </div>
-      <div class="pj-card rv" data-d="100">
-        <div class="pj-img"><img src="assets/pj-ads.webp" alt="Paid Advertising Mastery" loading="lazy" decoding="async"><div class="pj-ov"></div><div class="pj-tags"><span class="pj-tag">Google Ads</span><span class="pj-tag">Meta Ads</span></div></div>
-        <div class="pj-body"><h3 class="pj-title">Google & Meta Ads Management</h3><p class="pj-desc">Ran Google & Meta ad campaigns for a local business that was spending money on ads with nothing to show for it. After restructuring the targeting and messaging, their cost-per-lead dropped by 60% and monthly enquiries tripled — within the first 90 days.</p><div class="pj-meta"><span class="pj-tech"><i class="fas fa-dollar-sign ic ic-dollar-sign" aria-hidden="true"><svg viewBox="0 0 320 512"><use href="#i-dollar-sign"/></svg></i>Budget Optimised</span><span class="pj-tech"><i class="fas fa-bullseye ic ic-bullseye" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-bullseye"/></svg></i>Targeted</span></div><div class="pj-acts"><button class="pj-btn pri" onclick="openAdsShowcase()"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>View Project</button><button class="pj-btn sec"><i class="fas fa-chart-bar ic ic-chart-bar" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-chart-bar"/></svg></i>See Results</button></div></div>
-      </div>
-      <div class="pj-card rv" data-d="200">
-        <div class="pj-img"><img src="assets/pj-seo.webp" alt="E-Commerce SEO Campaign" loading="lazy" decoding="async"><div class="pj-ov"></div><div class="pj-tags"><span class="pj-tag">SEO</span><span class="pj-tag">Analytics</span></div></div>
-        <div class="pj-body"><h3 class="pj-title">SEO for Local & E-Commerce Businesses</h3><p class="pj-desc">Handled SEO for three live client websites — fixing technical issues, improving on-page content, and building the kind of search visibility that brings in enquiries without spending on ads every month. Results take time, but they stick.</p><div class="pj-meta"><span class="pj-tech"><i class="fas fa-chart-line ic ic-chart-line" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-chart-line"/></svg></i>SEO</span><span class="pj-tech"><i class="fas fa-search ic ic-magnifying-glass" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-magnifying-glass"/></svg></i>On-Page</span><span class="pj-tech"><i class="fas fa-cog ic ic-gear" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-gear"/></svg></i>Technical</span></div><div class="pj-acts"><button class="pj-btn pri" onclick="openSeoShowcase()"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>View Project</button><button class="pj-btn sec"><i class="fas fa-file-alt ic ic-file-lines" aria-hidden="true"><svg viewBox="0 0 384 512"><use href="#i-file-lines"/></svg></i>Case Study</button></div></div>
-      </div>
-      <div class="pj-card rv" data-d="0">
-        <div class="pj-img"><img src="assets/pj-design.webp" alt="Social Media &amp; Poster Design" loading="lazy" decoding="async" style="object-fit:cover;width:100%;height:100%;border-radius:inherit"><div class="pj-ov"></div><div class="pj-tags"><span class="pj-tag">Poster Design</span><span class="pj-tag">Branding</span><span class="pj-tag">Social Media</span></div></div>
-        <div class="pj-body"><h3 class="pj-title">Social Media &amp; Poster Design</h3><p class="pj-desc">Created posters, promotional graphics, and social media content for several local businesses. The goal was simple: make them look professional and consistent online, so when someone checks their Instagram or WhatsApp status, they actually take the business seriously.</p><div class="pj-meta"><span class="pj-tech"><i class="fas fa-paint-brush ic ic-paintbrush" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-paintbrush"/></svg></i>Design</span><span class="pj-tech"><i class="fas fa-pencil-ruler ic ic-pen-ruler" aria-hidden="true"><svg viewBox="0 0 512 512"><use href="#i-pen-ruler"/></svg></i>Branding</span></div><div class="pj-acts"><button class="pj-btn pri" onclick="openDesignShowcase()"><i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i>View Project</button><button class="pj-btn sec" onclick="openDesignShowcase()"><i class="fas fa-images ic ic-images" aria-hidden="true"><svg viewBox="0 0 576 512"><use href="#i-images"/></svg></i>View Designs</button></div></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- EXPERIENCE -->
 <section id="experience" class="section experience">
@@ -2016,7 +2018,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         </div>
       </div>
       <div class="ft-links">
-        <div class="ft-col"><h4>Navigation</h4><a href="#about">About Me</a><a href="#services">Services</a><a href="#projects">Projects</a><a href="#experience">Experience</a></div>
+        <div class="ft-col"><h4>Navigation</h4><a href="#about">About Me</a><a href="#projects">Projects</a><a href="#services">Services</a><a href="#experience">Experience</a></div>
         <div class="ft-col"><h4>Services</h4><a href="#services">Website Creation</a><a href="#services">Google & Meta Ads</a><a href="#services">SEO & Analytics</a><a href="#services">Creative Design</a></div>
         <div class="ft-col"><h4>Connect</h4><a href="mailto:praveen@chennaidigitalteam.com">Email Me</a><a href="#">Download CV</a><a href="#">LinkedIn</a><a href="#contact">Contact</a></div>
       </div>
@@ -2924,18 +2926,6 @@ if(canvas){
   document.addEventListener('visibilitychange',()=>{if(document.hidden)cancelAnimationFrame(aid);else loop()});
 }
 
-/* PARALLAX on service cards — mouse parallax bg */
-document.querySelectorAll('.service-card').forEach(card=>{
-  card.addEventListener('mousemove',e=>{
-    const rect=card.getBoundingClientRect(),x=e.clientX-rect.left,y=e.clientY-rect.top;
-    const bg=card.querySelector('.service-bg');
-    const mx=(x-rect.width/2)*.018,my=(y-rect.height/2)*.018;
-    bg.style.transform=`scale(1.12) translate(${mx}px,${my}px)`;
-  },{passive:true});
-  card.addEventListener('mouseleave',()=>{
-    card.querySelector('.service-bg').style.transform='scale(1.12) translate(0,0)';
-  });
-});
 
 /* CONTACT FORM */
 const cForm=document.getElementById('cForm'),fOk=document.getElementById('fOk'),bTx=document.getElementById('bTx');
@@ -3037,11 +3027,30 @@ function hydrateShowcase(id){
   const b=e.target.closest&&e.target.closest('[onclick*="Showcase("]');if(!b)return;
   const m=b.getAttribute('onclick').match(/open(Project|Seo|Ads|Design)Showcase/);if(m)hydrateShowcase(m[1].toLowerCase()+'Showcase');
 },{passive:true}));
+/* SERVICES CAROUSEL: photo loads as the section nears; arrows move one screenful and wrap;
+   autoplay every 5s, paused on hover, focus, touch, off-screen, or reduced motion. */
 (function(){
-  const cards=document.querySelectorAll('.service-card');
-  if(!('IntersectionObserver' in window)){cards.forEach(c=>c.classList.add('bg-in'));return;}
-  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('bg-in');io.unobserve(e.target);}}),{rootMargin:'800px 0px'});
-  cards.forEach(c=>io.observe(c));
+  const sec=document.getElementById('services');if(!sec)return;
+  const track=sec.querySelector('.svc-track'),prev=sec.querySelector('.svc-prev'),next=sec.querySelector('.svc-next');
+  const hasIO='IntersectionObserver' in window;
+  if(hasIO){const io=new IntersectionObserver(es=>{if(es.some(e=>e.isIntersecting)){sec.classList.add('bg-in');io.disconnect();}},{rootMargin:'800px 0px'});io.observe(sec);}
+  else sec.classList.add('bg-in');
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)');
+  const max=()=>track.scrollWidth-track.clientWidth;
+  const go=dir=>{const m=max();if(m<2)return;
+    const step=track.clientWidth+(parseFloat(getComputedStyle(track).columnGap)||0);
+    let x=track.scrollLeft+dir*step;
+    if(dir>0&&track.scrollLeft>=m-2)x=0;else if(dir<0&&track.scrollLeft<=2)x=m;
+    track.scrollTo({left:x,behavior:reduce.matches?'auto':'smooth'});};
+  prev.addEventListener('click',()=>go(-1));next.addEventListener('click',()=>go(1));
+  const sync=()=>{prev.disabled=next.disabled=max()<2};
+  sync();addEventListener('resize',sync,{passive:true});addEventListener('load',sync);
+  let hover=false,focus=false,touched=0,inView=!hasIO;
+  sec.addEventListener('mouseenter',()=>hover=true);sec.addEventListener('mouseleave',()=>hover=false);
+  sec.addEventListener('focusin',()=>focus=true);sec.addEventListener('focusout',e=>{if(!sec.contains(e.relatedTarget))focus=false});
+  sec.addEventListener('touchstart',()=>touched=Date.now(),{passive:true});
+  if(hasIO)new IntersectionObserver(es=>{inView=es[0].isIntersecting}).observe(track);
+  setInterval(()=>{if(reduce.matches||hover||focus||!inView||document.hidden||Date.now()-touched<8000)return;go(1)},5000);
 })();
 function openProjectShowcase(){
   gtag('event','view_showcase',{showcase:'websites'});
