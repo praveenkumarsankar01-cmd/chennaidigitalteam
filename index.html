@@ -378,7 +378,7 @@ body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t2);overf
    phones (background-attachment:fixed does not). #services is kept out of content-visibility
    below, because its paint containment would turn the fixed photo into an ordinary one. */
 #services{padding-bottom:0}
-.svc-fx{position:relative;background:#0f1117;clip-path:inset(0);padding:3rem 0 4.5rem}
+.svc-fx{position:relative;background:#0f1117;clip-path:inset(0);padding:2.5rem 0 3rem}
 .svc-fx-bg{position:fixed;top:0;left:0;width:100%;height:100vh;height:100lvh;z-index:0;pointer-events:none;background:#0f1117 center/cover no-repeat}
 .svc-fx-bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6)}
 .bg-in .svc-fx-bg{background-image:url('assets/svc-bg.webp')}
@@ -395,14 +395,14 @@ body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t2);overf
 .svc-track::-webkit-scrollbar{display:none}
 .svc-track:focus-visible{outline:2px solid rgba(255,255,255,.6);outline-offset:6px;border-radius:12px}
 .svc-item{scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;text-align:center;color:#fff;padding:0 .35rem}
-.svc-ic{width:104px;height:104px;border-radius:50%;border:1px solid rgba(255,255,255,.6);display:grid;place-items:center;color:#60a5fa;margin-bottom:1.4rem;transition:transform .4s var(--ease),background .4s var(--ease)}
-.svc-ic svg{width:58px;height:58px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.svc-ic{width:84px;height:84px;border-radius:50%;border:1px solid rgba(255,255,255,.6);display:grid;place-items:center;color:#60a5fa;margin-bottom:1rem;transition:transform .4s var(--ease),background .4s var(--ease)}
+.svc-ic svg{width:46px;height:46px;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 .svc-item:hover .svc-ic{transform:translateY(-6px);background:rgba(255,255,255,.08)}
-.svc-num{font-size:.78rem;font-weight:800;letter-spacing:.18em;color:#93c5fd;margin-bottom:.4rem}
-.svc-name{font-size:1.3rem;font-weight:800;color:#fff;line-height:1.3;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.3em;text-decoration-color:rgba(255,255,255,.7);margin-bottom:.9rem}
-.svc-text{font-size:.93rem;line-height:1.65;color:rgba(255,255,255,.8);margin-bottom:1.1rem}
-.svc-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-bottom:1.4rem}
-.svc-tag{padding:.28rem .75rem;border:1px solid rgba(255,255,255,.4);border-radius:99px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.01em}
+.svc-num{font-size:.78rem;font-weight:800;letter-spacing:.18em;color:#93c5fd;margin-bottom:.25rem}
+.svc-name{font-size:1.2rem;font-weight:800;color:#fff;line-height:1.3;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:.3em;text-decoration-color:rgba(255,255,255,.7);margin-bottom:.6rem}
+.svc-text{font-size:.92rem;line-height:1.55;color:rgba(255,255,255,.85);margin-bottom:.9rem;max-width:300px}
+.svc-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.35rem;margin-bottom:1.1rem}
+.svc-tag{padding:.22rem .65rem;border:1px solid rgba(255,255,255,.4);border-radius:99px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.01em}
 .svc-item .service-btn{margin-top:auto}
 .svc-name,.svc-text{text-shadow:0 1px 14px rgba(0,0,0,.45)}
 @media(max-width:1024px){.svc-track{--per:3}}
@@ -1849,7 +1849,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="svc-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="10" width="52" height="44" rx="5"/><path d="M6 21h52"/><circle cx="12.5" cy="15.5" r="1.4"/><circle cx="18" cy="15.5" r="1.4"/><circle cx="23.5" cy="15.5" r="1.4"/><rect x="13" y="28" width="16" height="18" rx="2"/><path d="M36 29h15M36 35.5h15M36 42h10"/></svg></div>
         <div class="svc-num">01</div>
         <h3 class="svc-name">Website Creation</h3>
-        <p class="svc-text">Fast, professional websites that visitors trust instantly. Clean design, mobile-friendly and SEO-ready. Average: 40% more enquiries within 90 days.</p>
+        <p class="svc-text">Fast, mobile-ready websites built to rank on Google and turn visitors into enquiries.</p>
         <div class="svc-tags"><span class="svc-tag">Fast Loading</span><span class="svc-tag">Mobile-Ready</span><span class="svc-tag">SEO Built-In</span></div>
         <a href="#contact" class="service-btn">Let's Build It <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
       </article>
@@ -1857,7 +1857,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="svc-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M10 27v10a3 3 0 0 0 3 3h6l18 10V14L19 24h-6a3 3 0 0 0-3 3z"/><path d="M19 24v16"/><path d="M21 40l3.6 10.2A2.7 2.7 0 0 0 27.1 52h2.4a2 2 0 0 0 1.9-2.7L28 43.6"/><path d="M44 26a8 8 0 0 1 0 12"/><path d="M49.5 21a15 15 0 0 1 0 22"/></svg></div>
         <div class="svc-num">02</div>
         <h3 class="svc-name">Ads Management</h3>
-        <p class="svc-text">Google Ads + Meta Ads that actually work. Smart targeting, constant optimisation, full transparency. Average ROI: 4–5x within 60 days.</p>
+        <p class="svc-text">Google and Meta Ads with sharp targeting and clear tracking, so every rupee works.</p>
         <div class="svc-tags"><span class="svc-tag">ROI Focused</span><span class="svc-tag">Real Tracking</span><span class="svc-tag">Budget Smart</span></div>
         <a href="#contact" class="service-btn">Let's Talk Ads <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
       </article>
@@ -1865,15 +1865,15 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <div class="svc-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 8v48h48"/><path d="M16 48v-7M23 48V36M30 48v-9"/><path d="M15 30l9-9 6 5 11-12"/><path d="M35 14h6v6"/><circle cx="43" cy="39" r="9"/><path d="M49.5 45.5L56 52"/></svg></div>
         <div class="svc-num">03</div>
         <h3 class="svc-name">SEO &amp; Analytics</h3>
-        <p class="svc-text">Get found on Google without paying per click. On-page SEO, technical fixes, keyword strategy and monthly reporting. Average: 250%+ organic traffic in 6 months.</p>
+        <p class="svc-text">Rank higher on Google without paying per click: technical fixes, keywords and monthly reports.</p>
         <div class="svc-tags"><span class="svc-tag">Rankings</span><span class="svc-tag">Organic Traffic</span><span class="svc-tag">Long-Term</span></div>
         <a href="#contact" class="service-btn">Improve My Ranking <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
       </article>
       <article class="svc-item">
         <div class="svc-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="24" width="32" height="28" rx="3"/><circle cx="15" cy="31.5" r="2.6"/><path d="M10 48l8.5-9.5 6 6 4.5-4.5 6 6.5"/><path d="M55.2 6.8a2.6 2.6 0 0 1 3.7 3.7L45 26.5l-3.6-3.2z"/><path d="M41.4 23.3c-3.4-.5-6.4 2-6.6 5.4-.2 2.6-1.6 4.1-3.6 4.8 5.6 2.6 12.4-.2 13.8-7"/></svg></div>
         <div class="svc-num">04</div>
-        <h3 class="svc-name">Social Media &amp; Poster Design</h3>
-        <p class="svc-text">Posters, social posts, thumbnails and banners — on-brand and attention-grabbing. Full brand design systems or one-off projects.</p>
+        <h3 class="svc-name">Social Media Design</h3>
+        <p class="svc-text">Posters, posts, thumbnails and banners that stay on-brand and stop the scroll.</p>
         <div class="svc-tags"><span class="svc-tag">Canva + Figma</span><span class="svc-tag">Brand Consistent</span><span class="svc-tag">Engaging</span></div>
         <a href="#contact" class="service-btn">See My Design Work <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
       </article>
