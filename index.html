@@ -377,18 +377,15 @@ body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t2);overf
    The photo is position:fixed inside a clip-path:inset(0) section, so it also stays put on
    phones (background-attachment:fixed does not). #services is kept out of content-visibility
    below, because its paint containment would turn the fixed photo into an ordinary one. */
-.svc-fx{background:#0f1117;clip-path:inset(0)}
+#services{padding-bottom:0}
+.svc-fx{position:relative;background:#0f1117;clip-path:inset(0);padding:4.5rem 0 5rem}
 .svc-fx-bg{position:fixed;top:0;left:0;width:100%;height:100vh;height:100lvh;z-index:0;pointer-events:none;background:#0f1117 center/cover no-repeat}
 .svc-fx-bg::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.6)}
-.svc-fx.bg-in .svc-fx-bg{background-image:url('assets/svc-bg.webp')}
-@media(max-width:700px){.svc-fx.bg-in .svc-fx-bg{background-image:url('assets/svc-bg-m.webp')}}
+.bg-in .svc-fx-bg{background-image:url('assets/svc-bg.webp')}
+@media(max-width:700px){.bg-in .svc-fx-bg{background-image:url('assets/svc-bg-m.webp')}}
 .svc-fx>.container{position:relative;z-index:1}
-.svc-head{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:3rem}
-#services .services-label{color:#fff;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.3)}
-#services .services-title{color:#fff;margin-bottom:1.1rem}
-#services .services-title::after{content:"";display:block;width:50px;height:3px;margin-top:1rem;border-radius:2px;background:linear-gradient(135deg,#93c5fd,#3b82f6)}
-#services .services-desc{color:rgba(255,255,255,.78);margin:0;max-width:560px}
-.svc-nav{display:flex;gap:.75rem;flex:none}
+#services .services-title::after{content:"";display:block;width:50px;height:3px;margin:1rem auto 0;border-radius:2px;background:linear-gradient(135deg,#93c5fd,#3b82f6)}
+.svc-nav{display:flex;justify-content:flex-end;gap:.75rem;margin-bottom:1.75rem}
 .svc-arrow{width:50px;height:50px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);color:#fff;cursor:pointer;transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease)}
 .svc-arrow svg{width:18px;height:18px}
 .svc-arrow:hover:not(:disabled),.svc-arrow:focus-visible{background:#fff;color:#171922;border-color:#fff}
@@ -406,10 +403,10 @@ body{font-family:'Outfit',sans-serif;background:var(--bg0);color:var(--t2);overf
 .svc-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem;margin-bottom:1.4rem}
 .svc-tag{padding:.28rem .75rem;border:1px solid rgba(255,255,255,.4);border-radius:99px;font-size:.72rem;font-weight:600;color:rgba(255,255,255,.9);letter-spacing:.01em}
 .svc-item .service-btn{margin-top:auto}
-.svc-head,.svc-name,.svc-text{text-shadow:0 1px 14px rgba(0,0,0,.45)}
+.svc-name,.svc-text{text-shadow:0 1px 14px rgba(0,0,0,.45)}
 @media(max-width:1024px){.svc-track{--per:3}}
-@media(max-width:768px){.svc-track{--per:2;--gap:1.5rem}.svc-head{flex-wrap:wrap;margin-bottom:2.2rem}}
-@media(max-width:540px){.svc-track{--per:1}.svc-head{gap:1.4rem}.svc-nav{margin-left:auto}}
+@media(max-width:768px){.svc-track{--per:2;--gap:1.5rem}.svc-fx{padding:3.5rem 0 4rem}}
+@media(max-width:540px){.svc-track{--per:1}.svc-nav{margin-bottom:1.25rem}}
 .service-btn{display:inline-flex;align-items:center;gap:.7rem;padding:.75rem 1.8rem;background:var(--grad);color:#fff;border-radius:12px;text-decoration:none;font-weight:800;font-size:.85rem;border:none;cursor:pointer;transition:all .35s var(--ease);box-shadow:0 8px 24px rgba(23,25,34,.35);width:fit-content;letter-spacing:.01em}
 .service-btn:hover{transform:translateX(8px);box-shadow:0 12px 36px rgba(23,25,34,.55)}
 .service-btn i{font-size:.75rem;transition:transform .35s var(--ease)}
@@ -1584,20 +1581,21 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
 </section>
 
 <!-- SERVICES — FIXED PHOTO + CAROUSEL -->
-<section id="services" class="section services svc-fx">
+<section id="services" class="section services">
+  <div class="container">
+    <div class="services-header">
+      <span class="services-label">WHAT I DO</span>
+      <h2 class="services-title">How I Can <span class="grad-text">Help You</span></h2>
+      <p class="services-desc">Four things I do well — and actually enjoy doing. Pick what your business needs most.</p>
+    </div>
+  </div>
+  <div class="svc-fx">
   <div class="svc-fx-bg" aria-hidden="true"></div>
   <div class="container">
-    <div class="svc-head">
-      <div>
-        <span class="services-label">WHAT I DO</span>
-        <h2 class="services-title">How I Can Help You</h2>
-        <p class="services-desc">Four things I do well — and actually enjoy doing. Pick what your business needs most.</p>
-      </div>
       <div class="svc-nav">
         <button type="button" class="svc-arrow svc-prev" aria-label="Previous services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg></button>
         <button type="button" class="svc-arrow svc-next" aria-label="Next services"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg></button>
       </div>
-    </div>
     <div class="svc-track" role="region" aria-label="Services" tabindex="0">
       <article class="svc-item">
         <div class="svc-ic"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="10" width="52" height="44" rx="5"/><path d="M6 21h52"/><circle cx="12.5" cy="15.5" r="1.4"/><circle cx="18" cy="15.5" r="1.4"/><circle cx="23.5" cy="15.5" r="1.4"/><rect x="13" y="28" width="16" height="18" rx="2"/><path d="M36 29h15M36 35.5h15M36 42h10"/></svg></div>
@@ -1632,6 +1630,7 @@ footer{background:var(--bg1);border-top:1px solid var(--glass-b);position:relati
         <a href="#contact" class="service-btn">See My Design Work <i class="fas fa-arrow-right ic ic-arrow-right" aria-hidden="true"><svg viewBox="0 0 448 512"><use href="#i-arrow-right"/></svg></i></a>
       </article>
     </div>
+  </div>
   </div>
 </section>
 
