@@ -2839,6 +2839,14 @@ function hydrateShowcase(id){
   const b=e.target.closest&&e.target.closest('[onclick*="Showcase("]');if(!b)return;
   const m=b.getAttribute('onclick').match(/open(Project|Seo|Ads|Design)Showcase/);if(m)hydrateShowcase(m[1].toLowerCase()+'Showcase');
 },{passive:true}));
+/* PROJECT CARDS: whole card opens its project view; buttons that had no action do the same */
+document.querySelectorAll('.pj-card').forEach(card=>{
+  const view=card.querySelector('.pj-btn.pri');if(!view)return;
+  card.style.cursor='pointer';
+  card.querySelectorAll('.pj-btn:not([onclick])').forEach(b=>b.addEventListener('click',e=>{e.stopPropagation();view.click()}));
+  card.addEventListener('click',e=>{if(!e.target.closest('button,a'))view.click()});
+});
+
 /* SERVICES CAROUSEL: photo loads as the section nears; arrows move one screenful and wrap;
    autoplay every 5s, paused on hover, focus, touch, off-screen, or reduced motion. */
 (function(){
